@@ -5,7 +5,7 @@ const createNavHome = () => {
     navbar.innerHTML = `
     <div class="max-w-7xl h-16 mx-auto flex items-center px-4 text-[#083549] justify-between ">
 
-        <a class="font-bold text-xl  dark:text-zinc-50 flex items-center gap-2" href="/" >
+        <a class="font-bold text-xl flex items-center gap-2" href="/" >
             <img src="/images/Telegram-Logo.webp" class="h-8"><div class="hidden md:block">Asistente Virtual</div></img>
         </a>
 
