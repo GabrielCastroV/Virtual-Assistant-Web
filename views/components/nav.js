@@ -42,7 +42,7 @@ const createNavHome = () => {
 };
 const createNavSignUp = () => {
     navbar.innerHTML = `
-    <div class="max-w-7xl h-16 mx-auto flex items-center px-4 text-alice-blue-50 justify-between ">
+    <div class="max-w-7xl h-16 mx-auto flex items-center px-4 text-allports-50 justify-between ">
 
         <a class="font-bold text-xl flex items-center gap-2" href="/" >
             <img src="/images/Telegram-Logo.webp" class="h-8"><div class="hidden md:block">Asistente Virtual</div></img>
@@ -66,15 +66,15 @@ const createNavSignUp = () => {
         <!-- tablet/pc version -->
 
           <div class="hidden md:flex flex-row gap-4">
-            <a href="/login/" class="hover:underline dark:text-zinc-50">Ingresar</a>
-            <a href="/signup/" class="hover:underline dark:text-zinc-50">Registro</a>
+            <a href="/login/" class="hover:underline dark:text-allports-50">Ingresar</a>
+            <a href="/signup/" class="hover:underline dark:text-allports-50">Registro</a>
           </div>
 
           <!-- menu mobile -->
 
-            <div class="fixed top-16 right-0 hidden left-0 bottom-0 justify-center items-center flex-col gap-4 text-transparent bg-[#04334d] bg-opacity-60 backdrop-blur-sm">
-                <a href="/login/" class="btn select-none bg-[#effaff] hover:bg-[#def3ff] text-[#04334d] border-black border rounded-lg p-4 w-32 text-center">Iniciar Sesión</a>
-                <a href="/signup/" class="btn select-none bg-gradient-to-r from-[#2ccbff] to-[#0091d4] hover:from-[#00adec] hover:to-[#0073ab] rounded-lg p-4 w-32 text-center text-[#effaff]">Registro</a>
+            <div class="fixed top-16 right-0 hidden left-0 bottom-0 justify-center items-center flex-col gap-4 text-transparent bg-allports-900 bg-opacity-60 backdrop-blur-md">
+                <a href="/login/" class="btn select-none bg-allports-50 hover:bg-allports-100 text-allports-950 border-l-allports-950 border rounded-lg p-4 w-32 text-center">Iniciar Sesión</a>
+                <a href="/signup/" class="btn select-none bg-gradient-to-r from-allports-400 to-allports-600 hover:from-allports-500 hover:to-allports-700 rounded-lg p-4 w-32 text-center text-allports-50">Registro</a>
             </div>          
     </div>
     `;
