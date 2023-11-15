@@ -30,7 +30,7 @@ app.use(cors());
 app.use('/', express.static(path.resolve(__dirname, 'views', 'home')));
 app.use('/create', express.static(path.resolve(__dirname, 'views', 'create')));
 app.use('/login', express.static(path.resolve(__dirname, 'views', 'login')));
-app.use('/admin', express.static(path.resolve(__dirname, 'views', 'admin')));
+app.use('/signup', express.static(path.resolve(__dirname, 'views', 'signup')));
 app.use('/styles', express.static(path.resolve(__dirname, 'views', 'styles')));
 app.use('/images', express.static(path.resolve(__dirname, 'img')));
 app.use('/components', express.static(path.resolve(__dirname, 'views', 'components')));

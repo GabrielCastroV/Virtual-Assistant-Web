@@ -46,3 +46,9 @@
     stroke-dasharray: 20 300;
     stroke-dashoffset: -32.42;
   }
+
+  .btn{ 
+    -webkit-box-shadow: -2px 5px 15px -7px rgba(8,53,73,0.65);
+    -moz-box-shadow: -2px 5px 15px -7px rgba(8,53,73,0.65);
+    box-shadow: -2px 5px 15px -7px rgba(8,53,73,0.65);
+  }
