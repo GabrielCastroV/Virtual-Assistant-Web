@@ -34,8 +34,8 @@ const createNavHome = () => {
           <!-- menu mobile -->
 
             <div class="fixed top-16 right-0 hidden left-0 bottom-0 justify-center items-center flex-col gap-4 text-transparent bg-[#04334d] bg-opacity-60 backdrop-blur-sm">
-                <a href="/login/" class="select-none bg-[#effaff] hover:bg-[#def3ff] text-[#04334d] border rounded-lg p-4 w-32 text-center">Iniciar Sesión</a>
-                <a href="/signup/" class="select-none bg-gradient-to-r from-[#2ccbff] to-[#0091d4] hover:from-[#00adec] hover:to-[#0073ab] rounded-lg p-4 w-32 text-center">Registro</a>
+                <a href="/login/" class="select-none bg-[#effaff] hover:bg-[#def3ff] text-[#04334d] border-black border rounded-lg p-4 w-32 text-center">Iniciar Sesión</a>
+                <a href="/signup/" class="select-none bg-gradient-to-r from-[#2ccbff] to-[#0091d4] hover:from-[#00adec] hover:to-[#0073ab] rounded-lg p-4 w-32 text-center text-[#effaff]">Registro</a>
             </div>          
     </div>
     `;
