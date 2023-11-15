@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+  box-sizing: 0;
+}
+
 .hamburger {
     cursor: pointer;
   }
