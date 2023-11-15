@@ -722,6 +722,11 @@ video {
   background-color: rgb(57 187 189 / var(--tw-bg-opacity));
 }
 
+.bg-allports-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(223 243 255 / var(--tw-bg-opacity));
+}
+
 .bg-allports-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(240 249 255 / var(--tw-bg-opacity));
@@ -735,6 +740,11 @@ video {
 .bg-allports-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(10 77 112 / var(--tw-bg-opacity));
+}
+
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 87 87 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-60 {
@@ -821,6 +831,16 @@ video {
 .text-allports-950 {
   --tw-text-opacity: 1;
   color: rgb(7 49 74 / var(--tw-text-opacity));
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(255 35 35 / var(--tw-text-opacity));
+}
+
+.text-red-700 {
+  --tw-text-opacity: 1;
+  color: rgb(215 0 0 / var(--tw-text-opacity));
 }
 
 .shadow-lg {
@@ -924,6 +944,15 @@ video {
 
 .hover\:underline:hover {
   text-decoration-line: underline;
+}
+
+.focus\:bg-allports-700:focus {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 115 171 / var(--tw-bg-opacity));
+}
+
+.focus\:outline-allports-700:focus {
+  outline-color: #0073ab;
 }
 
 .disabled\:cursor-not-allowed:disabled {

@@ -8,7 +8,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/023/986/534/large_2x/telegram-logo-telegram-logo-transparent-telegram-icon-transparent-free-free-png.png">
 </head>
-<body class="bg-alice-blue-50">
+<body class="bg-allports-50">
 
     <nav id="nav" class="fixed top-0 right-0 left-0 h-16 bg-allports-700">
     </nav>
@@ -22,62 +22,64 @@
         <div class="hidden lg:flex w-2/4 justify-center items-center">
             <img src="/images/signup.svg" alt="imagen signup">
         </div>
-        <form id="form" class="flex flex-col gap-4 p-4 rounded-lg text-lg bg-alice-blue-200 shadow-lg w-full md:w-9/12 lg:w-2/4">
+        <form id="form" class="flex flex-col gap-4 p-4 rounded-lg text-lg bg-allports-100 shadow-lg w-full md:w-9/12 lg:w-2/4">
             <div class="flex flex-col gap-2">
-                <label for="name-input" class="font-bold text-alice-blue-950">
+                <label for="name-input" class="font-bold text-allports-950">
                     Nombre y apellido<span class="text-red-500">*</span>
                 </label>
                 <input type="text" 
                 name="name-input" 
                 id="name-input" 
                 autocomplete="off" 
+                spellcheck="false"
                 placeholder="Ej: Gabriel Castro" 
-                class="rounded-lg p-2 bg-zinc-100 focus:outline-cyan-700 dark:bg-slate-300">
-                <p class="text-xs text-zinc-800 dark:text-zinc-50">Los nombres deben comenzar con letra mayúscula</p>
+                class="rounded-lg p-2 bg-allports-50 focus:outline-allports-700">
+                <p class="text-xs text-allports-950">Los nombres deben comenzar con letra mayúscula</p>
             </div>
             <div class="flex flex-col gap-2">
-                <label for="email-input" class="font-bold text-zinc-800 dark:text-zinc-50">
+                <label for="email-input" class="font-bold text-allports-950">
                     Correo <span class="text-red-500">*</span>
                 </label>
                 <input type="email" 
                 name="email-input" 
                 id="email-input" 
                 autocomplete="off" 
+                spellcheck="false"
                 placeholder="ejemplo@correo.com" 
-                class="rounded-lg p-2 bg-zinc-100 focus:outline-cyan-700 dark:bg-slate-300">
-                <p class="text-xs text-zinc-800 dark:text-zinc-50">El correo es requerido</p>
+                class="rounded-lg p-2 bg-allports-50 focus:outline-allports-700">
+                <p class="text-xs text-allports-950">El correo es requerido</p>
             </div>
             <div class="flex flex-col gap-2">
-                <label for="password-input" class="font-bold text-zinc-800 dark:text-zinc-50">
+                <label for="password-input" class="font-bold text-allports-950 ">
                     Contraseña <span class="text-red-500">*</span>
                 </label>
                 <input type="password" 
                 name="password" 
                 id="password-input" 
                 autocomplete="off" 
-                class="rounded-lg p-2 bg-zinc-100 focus:outline-cyan-700 dark:bg-slate-300">
-                <p class="text-xs text-zinc-800 dark:text-zinc-50">
+                class="rounded-lg p-2 bg-allports-50 focus:outline-allports-700">
+                <p class="text-xs text-allports-950">
                     La contraseña debe tener al menos un número <br>
                     La contraseña debe tener al menos 8 caracteres 
                     
                 </p>
             </div>     
             <div class="flex flex-col gap-2">
-                <label for="confirm-password-input" class="font-bold text-zinc-800 dark:text-zinc-50">
+                <label for="confirm-password-input" class="font-bold text-allports-950">
                     Confirmar contraseña <span class="text-red-500">*</span>
                 </label>
                 <input type="password" 
                 name="confirm-password" 
                 id="confirm-password-input" 
                 autocomplete="off" 
-                class="rounded-lg p-2 bg-zinc-100 focus:outline-cyan-700 dark:bg-slate-300">
-                <p class="text-xs text-zinc-800 dark:text-zinc-50">
+                class="rounded-lg p-2 bg-allports-50 focus:outline-allports-700">
+                <p class="text-xs text-allports-950">
                     La contraseña debe coincidir
                 </p>
             </div>
             <span id="loader" class="loader mx-auto hidden"></span>
 
-            <button id="form-btn" disabled class="bg-[#39BBBD] hover:bg-[#429fa0] py-2 px-4 rounded-lg font-bold text-zinc-50 text-center transition ease-in-out disabled:opacity-50 disabled:cursor-not-allowed">
+            <button id="form-btn" disabled class="bg-[#39BBBD] hover:bg-[#429fa0] py-2 px-4 rounded-lg font-bold text-allports-50 text-center transition ease-in-out disabled:opacity-50 disabled:cursor-not-allowed">
                 Registrar
             </button>      
         </form>
