@@ -40,7 +40,7 @@ const createNavHome = () => {
     </div>
     `;
 };
-const createNavSignUp = () => {
+const createNavCreate = () => {
     navbar.innerHTML = `
     <div class="max-w-7xl h-16 mx-auto flex items-center px-4 text-allports-50 justify-between ">
 
@@ -80,8 +80,8 @@ const createNavSignUp = () => {
 
 if (window.location.pathname === '/') {
     createNavHome();
-} else if (window.location.pathname === '/signup/') {
-    createNavSignUp();
+} else if (window.location.pathname === '/create/') {
+    createNavCreate();
 }
 
 const navBtn = navbar.children[0].children[1];
