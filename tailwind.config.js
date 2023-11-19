@@ -3,6 +3,8 @@ module.exports = {
     content: ['./views/**/*.{html,js}'],
     theme: {
         colors: {
+            transparent: 'transparent',
+            current: 'currentColor',
             'allports': {
                 '50': '#f0f9ff',
                 '100': '#dff3ff',

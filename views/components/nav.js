@@ -26,9 +26,9 @@ const createNavHome = () => {
 
         <!-- tablet/pc version -->
 
-          <div class="hidden md:flex flex-row gap-4">
-            <a href="/login/" class="hover:underline dark:text-allports-50">Ingresar</a>
-            <a href="/create/" class="hover:underline dark:text-allports-50">Crear</a>
+          <div class="hidden md:flex flex-row gap-4 a">
+            <a href="/login/" class=" dark:text-allports-50">Ingresar</a>
+            <a href="/create/" class=" dark:text-allports-50">Crear</a>
           </div>
 
           <!-- menu mobile -->
