@@ -3,7 +3,7 @@ const navbar = document.querySelector('#nav');
 
 const createNavHome = () => {
     navbar.innerHTML = `
-    <div class="max-w-7xl h-16 mx-auto flex items-center px-4 text-allports-50 justify-between ">
+    <div class="max-w-7xl h-16 mx-auto flex items-center px-4 text-allports-50 justify-between">
 
         <a class="font-bold text-xl flex items-center gap-2" href="/" >
             <img src="/images/Telegram-Logo.webp" class="h-8"><div class="hidden md:block">Asistente Virtual</div></img>
@@ -26,9 +26,9 @@ const createNavHome = () => {
 
         <!-- tablet/pc version -->
 
-          <div class="hidden md:flex flex-row gap-4 a">
-            <a href="/login/" class=" dark:text-allports-50">Ingresar</a>
-            <a href="/create/" class=" dark:text-allports-50">Crear</a>
+          <div class="hidden md:flex flex-row gap-4">
+            <a href="/login/" class=" dark:text-allports-50 under">Ingresar</a>
+            <a href="/create/" class=" dark:text-allports-50 under">Crear</a>
           </div>
 
           <!-- menu mobile -->
