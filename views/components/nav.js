@@ -66,7 +66,7 @@ const createNavCreate = () => {
         <!-- tablet/pc version -->
 
           <div class="hidden md:flex flex-row gap-4">
-            <a href="/login/" class="hover:underline dark:text-allports-50">Ingresar</a>
+            <a href="/login/" class="hover:underline dark:text-allports-50 under">Ingresar</a>
           </div>
 
           <!-- menu mobile -->
