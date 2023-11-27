@@ -44,21 +44,49 @@
                 <label for="course-input" class="font-bold text-allports-800">
                     Curso <span class="text-red-500">*</span>
                 </label>
-                <select name="course-input" id="course-input" class="rounded-lg p-2 bg-allports-100 duration-75 outline-none focus:outline-allports-700"></select>
-                <p class="text-xs text-allports-950  ">Selecciona el curso que estudias</p>
+                <select name="course-input" id="course-input" class="rounded-lg p-2 bg-allports-100 duration-75 outline-none focus:outline-allports-700">
+                    <option value="" selected disabled>Selecciona un curso</option>
+                    <option value="" >Programación FullStack</option>
+                    <option value="" >Diseño Gráfico</option>
+                    <option value="" >Marketing y Redes Sociales</option>
+                    <option value="" >Fotografía</option>
+                    <option value="" >Programación FullStack Online</option>
+                    <option value="" >Marketing y Redes Sociales Online</option>
+                    <option value="" >Robótica</option>
+                </select>
             </div>
             <div class="flex flex-row gap-2 justify-around flex-">
                 <div class="flex flex-col w-full">
                     <label for="module-input" class="font-bold text-allports-800">
                         Módulo
                     </label>
-                    <select name="module-input" id="module-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700"></select>
+                    <select name="module-input" id="module-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700">
+                    <option value="" selected disabled>Selecciona tu módulo</option>
+                    <option value="" >1</option>
+                    <option value="" >2</option>
+                    <option value="" >3</option>
+                    <option value="" >4</option>
+                    <option value="" >5</option>
+                    <option value="" >6</option>
+                    </select>
                 </div>  
                 <div class="flex flex-col w-full">
                     <label for="attendance-input" class="font-bold text-allports-800">
                         Asistencia
                     </label>
-                    <select name="attendance-input" id="attendance-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700"></select>
+                    <select name="attendance-input" id="attendance-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700">
+                        <option value="" selected disabled>Selecciona tu % de asistencia</option>
+                        <option value="" >10%</option>
+                        <option value="" >20%</option>
+                        <option value="" >30%</option>
+                        <option value="" >40%</option>
+                        <option value="" >50%</option>
+                        <option value="" >60%</option>
+                        <option value="" >70%</option>
+                        <option value="" >80%</option>
+                        <option value="" >90%</option>
+                        <option value="" >100%</option>
+                    </select>
                 </div>
                 <div class="flex flex-col w-full">
                     <label for="date-input" class="font-bold text-allports-800">
@@ -67,6 +95,7 @@
                     <input type="date" max="2024-12-31" min="2022-01-01" name="date-input" id="date-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700">
                 </div>
             </div>
+            <button class="btn md:w-2/4 md:mx-auto select-none text-allports-50 bg-gradient-to-r from-allports-400 to-allports-600 rounded-lg p-4 hover:from-allports-500 hover:to-allports-700">Crear</button>
         </form>
     </div>
 
