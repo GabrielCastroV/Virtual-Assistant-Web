@@ -11,7 +11,7 @@ const createNavHome = () => {
 
         <!-- mobile version -->
 
-        <!--<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 p-2 rounded-lg hover:bg-zinc-300 dark:text-zinc-50 hover:dark:bg-slate-700 md:hidden cursor-pointer">
+        <!--<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 p-2 rounded-lg hover:bg-zinc-300 md:hidden cursor-pointer">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg> -->
 
@@ -27,8 +27,8 @@ const createNavHome = () => {
         <!-- tablet/pc version -->
 
           <div class="hidden md:flex flex-row gap-4">
-            <a href="/login/" class=" dark:text-allports-50 under">Ingresar</a>
-            <a href="/create/" class=" dark:text-allports-50 under">Crear</a>
+            <a href="/login/" class="under">Ingresar</a>
+            <a href="/create/" class="under">Crear</a>
           </div>
 
           <!-- menu mobile -->
@@ -50,7 +50,7 @@ const createNavCreate = () => {
 
         <!-- mobile version -->
 
-        <!--<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 p-2 rounded-lg hover:bg-zinc-300 dark:text-zinc-50 hover:dark:bg-slate-700 md:hidden cursor-pointer">
+        <!--<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 p-2 rounded-lg hover:bg-zinc-300 md:hidden cursor-pointer">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg> -->
 
@@ -66,7 +66,7 @@ const createNavCreate = () => {
         <!-- tablet/pc version -->
 
           <div class="hidden md:flex flex-row gap-4">
-            <a href="/login/" class="hover:underline dark:text-allports-50 under">Ingresar</a>
+            <a href="/login/" class="under">Ingresar</a>
           </div>
 
           <!-- menu mobile -->
