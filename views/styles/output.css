@@ -961,6 +961,10 @@ video {
   outline-color: #0073ab;
 }
 
+.disabled\:cursor-not-allowed:disabled {
+  cursor: not-allowed;
+}
+
 @media (prefers-color-scheme: dark) {
   .dark\:text-allports-50 {
     --tw-text-opacity: 1;
