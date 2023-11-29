@@ -14,7 +14,7 @@ const EMAIL_VALIDATION = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`
 
 // validations
 let nameValidation = false;
-const emailValidation = false;
+let emailValidation = false;
 
 const validation = (input, regexValidation) => {
     if (input.value === '') {
@@ -32,6 +32,11 @@ const validation = (input, regexValidation) => {
 nameInput.addEventListener('input', e => {
     nameValidation = NAME_VALIDATION.test(e.target.value);
     validation(nameInput, nameValidation);
+});
+
+emailInput.addEventListener('input', e => {
+    emailValidation = EMAIL_VALIDATION.test(e.target.value);
+    validation(emailInput, emailValidation);
 });
 
 
