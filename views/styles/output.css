@@ -1018,6 +1018,10 @@ video {
     flex-direction: row;
   }
 
+  .md\:flex-wrap {
+    flex-wrap: wrap;
+  }
+
   .md\:p-0 {
     padding: 0px;
   }
@@ -1026,5 +1030,15 @@ video {
 @media (min-width: 1024px) {
   .lg\:w-2\/4 {
     width: 50%;
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:flex-row {
+    flex-direction: row;
   }
 }
