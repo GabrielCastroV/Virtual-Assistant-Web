@@ -18,14 +18,16 @@ const emailValidation = false;
 
 const validation = (input, regexValidation) => {
     if (input.value === '') {
-        input.classList.remove('outline-red-700', 'focus:outline-cyan-700');
-        input.classList.add('outline-2', 'outline', 'focus:outline-cyan-700');
+        console.log('empty');
+        input.classList.remove('outline-red-700', 'focus:outline-red-700', 'focus:outline-allports-700', 'outline-allports-700');
     } else if (regexValidation) {
-        input.classList.remove('outline-red-700', 'focus:outline-cyan-700');
-        input.classList.add('outline-green-700', 'outline-2', 'outline');
+        input.classList.remove('outline-red-700', 'focus:outline-red-700', 'focus:outline-allports-700');
+        input.classList.add('focus:outline-green-200', 'outline-green-200');
+        console.log('valid');
     } else {
-        input.classList.remove('outline-green-700', 'focus:outline-cyan-700');
-        input.classList.add('outline-red-700', 'outline-2', 'outline');
+        console.log('not');
+        input.classList.remove('focus:outline-allports-700', 'focus:outline-red-200');
+        input.classList.add('focus:outline-red-700', 'outline-red-700', 'outline');
     }
 };
 
