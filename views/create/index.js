@@ -11,6 +11,8 @@ const btn = document.querySelector('.btn');
 // Regex Validation
 const NAME_VALIDATION = /^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]{1,15}\s){1}[A-ZÁÉÍÓÚÑ][a-záéíóúñ]{1,15}$/;
 const EMAIL_VALIDATION = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+const DATE_VALIDATION = /^(2023-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])|2024-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$/;
+
 
 // validations
 let nameValidation = false;
@@ -18,6 +20,7 @@ let emailValidation = false;
 let courseValidation = false;
 let moduleValidation = false;
 let attendanceValidation = false;
+let dateValidation = false;
 btn.disabled = true;
 
 const validation = (input, regexValidation) => {
@@ -59,6 +62,11 @@ moduleInput.addEventListener('input', () => {
 attendanceInput.addEventListener('input', () => {
     attendanceValidation = true;
     validation(attendanceInput, attendanceValidation);
+});
+
+dateInput.addEventListener('input', e => {
+    dateValidation = DATE_VALIDATION.test(e.target.value);
+    validation(dateInput, dateValidation);
 });
 
 form.addEventListener('submit', e => {
