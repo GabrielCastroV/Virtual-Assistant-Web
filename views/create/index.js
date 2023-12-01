@@ -16,11 +16,12 @@ const EMAIL_VALIDATION = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`
 let nameValidation = false;
 let emailValidation = false;
 let courseValidation = false;
+let moduleValidation = false;
 btn.disabled = true;
 
 const validation = (input, regexValidation) => {
 
-    btn.disabled = nameValidation && emailValidation && courseValidation ? false : true;
+    btn.disabled = nameValidation && emailValidation && courseValidation && moduleValidation ? false : true;
 
     if (input.value === '') {
         input.classList.remove('outline-red-700', 'focus:outline-red-700', 'focus:outline-japanese-laurel-300', 'outline-japanese-laurel-300');
@@ -47,6 +48,11 @@ emailInput.addEventListener('input', e => {
 courseInput.addEventListener('input', () => {
     courseValidation = true;
     validation(courseInput, courseValidation);
+});
+
+moduleInput.addEventListener('input', () => {
+    moduleValidation = true;
+    validation(moduleInput, moduleValidation);
 });
 
 form.addEventListener('submit', e => {
