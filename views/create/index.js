@@ -17,6 +17,7 @@ let nameValidation = false;
 let emailValidation = false;
 let courseValidation = false;
 let moduleValidation = false;
+let attendanceValidation = false;
 btn.disabled = true;
 
 const validation = (input, regexValidation) => {
@@ -53,6 +54,11 @@ courseInput.addEventListener('input', () => {
 moduleInput.addEventListener('input', () => {
     moduleValidation = true;
     validation(moduleInput, moduleValidation);
+});
+
+attendanceInput.addEventListener('input', () => {
+    attendanceValidation = true;
+    validation(attendanceInput, attendanceValidation);
 });
 
 form.addEventListener('submit', e => {
