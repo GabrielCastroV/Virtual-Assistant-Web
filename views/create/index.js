@@ -25,7 +25,7 @@ btn.disabled = true;
 
 const validation = (input, regexValidation) => {
 
-    btn.disabled = nameValidation && emailValidation && courseValidation && moduleValidation ? false : true;
+    btn.disabled = nameValidation && emailValidation && courseValidation && moduleValidation && attendanceValidation && dateValidation ? false : true;
 
     if (input.value === '') {
         input.classList.remove('outline-red-700', 'focus:outline-red-700', 'focus:outline-japanese-laurel-300', 'outline-japanese-laurel-300');
@@ -52,6 +52,23 @@ emailInput.addEventListener('input', e => {
 courseInput.addEventListener('input', () => {
     courseValidation = true;
     validation(courseInput, courseValidation);
+    if (courseInput.value === '3') {
+        moduleInput.innerHTML = ` 
+        <option value="1" >1</option>
+        <option value="2" >2</option>
+        <option value="3" >3</option>
+        <option value="4" >4</option>
+        `;
+    } else {
+        moduleInput.innerHTML = `
+        <option value="1" >1</option>
+        <option value="2" >2</option>
+        <option value="3" >3</option>
+        <option value="4" >4</option>
+        <option value="5" >5</option>
+        <option value="6" >6</option>
+     `;
+    }
 });
 
 moduleInput.addEventListener('input', () => {
