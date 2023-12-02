@@ -74,3 +74,9 @@
 .under:hover, a:focus {
     background-size: 100% 2px;
 }
+
+.font {
+  font-family: 'Lobster', sans-serif;
+  font-family: 'Merriweather', serif;
+  font-family: 'Montserrat', sans-serif;
+}

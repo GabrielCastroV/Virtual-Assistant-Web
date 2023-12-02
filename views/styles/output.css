@@ -951,6 +951,12 @@ video {
   background-size: 100% 2px;
 }
 
+.font {
+  font-family: 'Lobster', sans-serif;
+  font-family: 'Merriweather', serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .hover\:bg-allports-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(223 243 255 / var(--tw-bg-opacity));
