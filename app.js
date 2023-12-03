@@ -6,6 +6,7 @@ const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+const loginRouter = require('./controllers/login');
 
 (async () => {
     try {
@@ -26,6 +27,9 @@ app.use(cookieParser());
 // seguridad en las interacciones entre diferentes sitios webs y prevencion de ataques no autorizados.
 app.use(cors());
 
+// muestra mensajes en consola de las peticiones HTTP.
+app.use(morgan('tiny'));
+
 // Rutas Front-End
 app.use('/', express.static(path.resolve(__dirname, 'views', 'home')));
 app.use('/login', express.static(path.resolve(__dirname, 'views', 'login')));
@@ -34,10 +38,8 @@ app.use('/styles', express.static(path.resolve(__dirname, 'views', 'styles')));
 app.use('/images', express.static(path.resolve(__dirname, 'img')));
 app.use('/components', express.static(path.resolve(__dirname, 'views', 'components')));
 
-// muestra mensajes en consola de las peticiones HTTP.
-app.use(morgan('tiny'));
 
 // Rutas Back-End
-
+app.use('/api/login', loginRouter);
 
 module.exports = app;

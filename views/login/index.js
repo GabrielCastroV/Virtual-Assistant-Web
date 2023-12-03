@@ -21,9 +21,9 @@ form.addEventListener('submit', async e => {
         btn.classList.remove('hidden');
 
     } catch (error) {
-        console.error(error);
         loader.classList.add('hidden');
         loader.classList.remove('flex');
         btn.classList.remove('hidden');
+        console.log(error.response.data.error);
     }
 });
