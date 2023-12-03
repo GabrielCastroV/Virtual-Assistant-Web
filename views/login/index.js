@@ -1,12 +1,29 @@
 const form = document.querySelector('#form');
 const emailInput = document.querySelector('#email-input');
 const passwordInput = document.querySelector('#password-input');
+const loader = document.querySelector('.loading-wave');
+const btn = document.querySelector('#form-btn');
 
-form.addEventListener('submit', e => {
+form.addEventListener('submit', async e => {
     e.preventDefault();
-    if (emailInput.value == process.env.USER_ADMIN && passwordInput.value == process.env.PASSWORD_ADMIN) {
-        console.log('correcto');
-    } else {
-        console.log('no');
+    loader.classList.remove('hidden');
+    loader.classList.add('flex');
+    btn.classList.add('hidden');
+    try {
+        const user = {
+            email: emailInput.value,
+            password: passwordInput.value,
+        };
+        // eslint-disable-next-line no-undef
+        await axios.post('/api/login', user);
+        loader.classList.add('hidden');
+        loader.classList.remove('flex');
+        btn.classList.remove('hidden');
+
+    } catch (error) {
+        console.error(error);
+        loader.classList.add('hidden');
+        loader.classList.remove('flex');
+        btn.classList.remove('hidden');
     }
 });
