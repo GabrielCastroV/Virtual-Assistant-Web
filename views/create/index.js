@@ -61,7 +61,8 @@ courseInput.addEventListener('input', () => {
         <option value="3" >3</option>
         <option value="4" >4</option>
         `;
-        validation(moduleInput, true);
+        moduleValidation = true;
+        validation(moduleInput, moduleValidation);
     } else {
         moduleInput.innerHTML = `
         <option value="1" >1</option>
@@ -71,7 +72,8 @@ courseInput.addEventListener('input', () => {
         <option value="5" >5</option>
         <option value="6" >6</option>
      `;
-        validation(moduleInput, true);
+        moduleValidation = true;
+        validation(moduleInput, moduleValidation);
     }
     let container = '';
     for (let index = 0; index < moduleInput.value; index++) {
@@ -123,10 +125,29 @@ form.addEventListener('submit', e => {
     e.preventDefault();
     if (nameValidation && emailValidation && courseValidation && moduleValidation && attendanceValidation && dateValidation && noteValidation) {
         try {
+            const student = {
+                name: nameInput.value,
+                email: emailInput.value,
+                course: courseInput.value,
+                module: moduleInput.value,
+                payday: dateInput.value,
+                attendance: attendanceInput.value,
+                grades: [
+                    notesContainer?.children[0]?.children[1]?.value,
+                    notesContainer?.children[1]?.children[1]?.value,
+                    notesContainer?.children[2]?.children[1]?.value,
+                    notesContainer?.children[3]?.children[1]?.value,
+                    notesContainer?.children[4]?.children[1]?.value,
+                    notesContainer?.children[5]?.children[1]?.value,
+                ],
+
+            };
             // eslint-disable-next-line no-undef
-            axios.post();
+            console.log(student);
         } catch (error) {
-            console.log(error.response.data.error);
+            console.log(error);
         }
+    } else {
+        console.log('error pa');
     }
 });
