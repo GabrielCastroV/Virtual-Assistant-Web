@@ -121,4 +121,12 @@ notesContainer.addEventListener('input', (e) => {
 
 form.addEventListener('submit', e => {
     e.preventDefault();
+    if (nameValidation && emailValidation && courseValidation && moduleValidation && attendanceValidation && dateValidation && noteValidation) {
+        try {
+            // eslint-disable-next-line no-undef
+            axios.post();
+        } catch (error) {
+            console.log(error.response.data.error);
+        }
+    }
 });
