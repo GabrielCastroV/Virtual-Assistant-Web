@@ -6,6 +6,7 @@ const moduleInput = document.querySelector('#module-input');
 const attendanceInput = document.querySelector('#attendance-input');
 const dateInput = document.querySelector('#date-input');
 const btn = document.querySelector('.btn');
+const notesContainer = document.querySelector('#notes');
 
 
 // Regex Validation
@@ -69,11 +70,33 @@ courseInput.addEventListener('input', () => {
         <option value="6" >6</option>
      `;
     }
+    let container = '';
+    for (let index = 0; index < moduleInput.value; index++) {
+        container += `
+        <div class="flex flex-col w-full md:w-auto">
+            <label for="note-input" class="font-bold text-allports-800">
+                Nota módulo ${index + 1}</label>
+            <input id="nota-${index + 1}" placeholder="0-20" name="note-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700" type="number" max="20" min="0">
+        </div>
+        `;
+    }
+    notesContainer.innerHTML = container;
 });
 
 moduleInput.addEventListener('input', () => {
     moduleValidation = true;
     validation(moduleInput, moduleValidation);
+    let container = '';
+    for (let index = 0; index < moduleInput.value; index++) {
+        container += `
+        <div class="flex flex-col w-full md:w-auto">
+            <label for="note-input" class="font-bold text-allports-800">
+                Nota módulo ${index + 1}</label>
+            <input id="nota-${index + 1}" placeholder="0-20" name="note-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700" type="number" max="20" min="0">
+        </div>
+        `;
+    }
+    notesContainer.innerHTML = container;
 });
 
 attendanceInput.addEventListener('input', () => {
