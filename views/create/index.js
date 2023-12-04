@@ -13,7 +13,7 @@ const notesContainer = document.querySelector('#notes');
 const NAME_VALIDATION = /^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]{1,15}\s){1}[A-ZÁÉÍÓÚÑ][a-záéíóúñ]{1,15}$/;
 const EMAIL_VALIDATION = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 const DATE_VALIDATION = /^(2023-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])|2024-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$/;
-
+const NUMBER_VALIDATION = /^(0|1?\d|20)$/;
 
 // validations
 let nameValidation = false;
@@ -22,11 +22,12 @@ let courseValidation = false;
 let moduleValidation = false;
 let attendanceValidation = false;
 let dateValidation = false;
+let noteValidation = false;
 btn.disabled = true;
 
 const validation = (input, regexValidation) => {
 
-    btn.disabled = nameValidation && emailValidation && courseValidation && moduleValidation && attendanceValidation && dateValidation ? false : true;
+    btn.disabled = nameValidation && emailValidation && courseValidation && moduleValidation && attendanceValidation && dateValidation && noteValidation ? false : true;
 
     if (input.value === '') {
         input.classList.remove('outline-red-700', 'focus:outline-red-700', 'focus:outline-japanese-laurel-300', 'outline-japanese-laurel-300');
@@ -107,6 +108,13 @@ attendanceInput.addEventListener('input', () => {
 dateInput.addEventListener('input', e => {
     dateValidation = DATE_VALIDATION.test(e.target.value);
     validation(dateInput, dateValidation);
+});
+
+notesContainer.addEventListener('input', (e) => {
+    if (e.target.id && e.target.id.startsWith('nota-')) {
+        noteValidation = NUMBER_VALIDATION.test(e.target.value);
+        validation(e.target, noteValidation);
+    }
 });
 
 form.addEventListener('submit', e => {
