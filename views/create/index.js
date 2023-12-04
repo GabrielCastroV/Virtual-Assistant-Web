@@ -146,7 +146,7 @@ form.addEventListener('submit', async e => {
             await axios.post('/api/create', student);
             console.log(student);
         } catch (error) {
-            console.log(error);
+            console.log(error.response.data.error);
         }
     } else {
         console.log('error pa');
