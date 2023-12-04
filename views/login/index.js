@@ -19,7 +19,7 @@ form.addEventListener('submit', async e => {
         loader.classList.add('hidden');
         loader.classList.remove('flex');
         btn.classList.remove('hidden');
-
+        window.location.pathname = '/dashboard/';
     } catch (error) {
         loader.classList.add('hidden');
         loader.classList.remove('flex');
