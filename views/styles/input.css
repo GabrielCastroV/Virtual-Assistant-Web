@@ -121,3 +121,25 @@
     height: 5px;
   }
 }
+
+.info-icon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.notification {
+  display: none;
+  position: absolute;
+  top: auto;
+  left: auto; 
+  padding: 10px;
+  background-color: rgb(244, 244, 210);
+  border: 1px solid #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.info-icon:hover + #notification {
+  display: block;
+}

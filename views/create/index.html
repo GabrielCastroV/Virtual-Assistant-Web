@@ -41,7 +41,6 @@
                 spellcheck="false"
                 placeholder="ejemplo@correo.com" 
                 class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700">
-                <p class="text-xs text-allports-950">El correo es requerido</p>
             </div>
             <div class="flex flex-col gap-2">
                 <label for="course-input" class="font-bold text-allports-800">
@@ -59,7 +58,7 @@
                 </select>
             </div>
             <div class="flex flex-col xl:flex-row gap-2 justify-around flex-">
-                <div class="flex flex-col w-full">
+                <div class="flex flex-col w-full gap-2">
                     <label for="module-input" class="font-bold text-allports-800">
                         Módulo
                     </label>
@@ -67,7 +66,7 @@
                     <option value="" selected disabled>Elige tu módulo</option>
                     </select>
                 </div>  
-                <div class="flex flex-col w-full">
+                <div class="flex flex-col w-full gap-2">
                     <label for="attendance-input" class="font-bold text-allports-800">
                         Asistencia
                     </label>
@@ -85,9 +84,13 @@
                         <option value="100" >100%</option>
                     </select>
                 </div>
-                <div class="flex flex-col w-full">
+                <div class="flex flex-col w-full gap-2">
                     <label for="date-input" class="font-bold text-allports-800">
-                        Mes 
+                        Mes <div class="info-icon">ⓘ</div>
+                        <div id="notification" class="notification rounded-lg">
+                          El mes se refiere a tu próxima fecha de pago 💸. 
+                          En caso de haber culminado, puedes poner tu última fecha de pago
+                        </div>
                     </label>
                     <input type="date" max="2024-12-31" min="2023-01-01" name="date-input" id="date-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700">
                 </div>
