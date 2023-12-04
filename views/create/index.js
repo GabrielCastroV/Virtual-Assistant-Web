@@ -121,7 +121,7 @@ notesContainer.addEventListener('input', (e) => {
     }
 });
 
-form.addEventListener('submit', e => {
+form.addEventListener('submit', async e => {
     e.preventDefault();
     if (nameValidation && emailValidation && courseValidation && moduleValidation && attendanceValidation && dateValidation && noteValidation) {
         try {
@@ -143,6 +143,7 @@ form.addEventListener('submit', e => {
 
             };
             // eslint-disable-next-line no-undef
+            await axios.post('/api/create', student);
             console.log(student);
         } catch (error) {
             console.log(error);
