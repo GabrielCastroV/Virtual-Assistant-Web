@@ -61,6 +61,7 @@ courseInput.addEventListener('input', () => {
         <option value="3" >3</option>
         <option value="4" >4</option>
         `;
+        validation(moduleInput, true);
     } else {
         moduleInput.innerHTML = `
         <option value="1" >1</option>
@@ -70,6 +71,7 @@ courseInput.addEventListener('input', () => {
         <option value="5" >5</option>
         <option value="6" >6</option>
      `;
+        validation(moduleInput, true);
     }
     let container = '';
     for (let index = 0; index < moduleInput.value; index++) {
@@ -85,7 +87,7 @@ courseInput.addEventListener('input', () => {
 });
 
 moduleInput.addEventListener('input', () => {
-    moduleValidation = true;
+    moduleValidation = moduleInput.value ? true : false;
     validation(moduleInput, moduleValidation);
     let container = '';
     for (let index = 0; index < moduleInput.value; index++) {
