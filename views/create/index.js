@@ -12,7 +12,7 @@ const notesContainer = document.querySelector('#notes');
 // Regex Validation
 const NAME_VALIDATION = /^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]{1,15}\s){1}[A-ZÁÉÍÓÚÑ][a-záéíóúñ]{1,15}$/;
 const EMAIL_VALIDATION = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-const DATE_VALIDATION = /^(2023-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])|2024-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$/;
+const DATE_VALIDATION = /^(202[0-4]-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$/;
 const NUMBER_VALIDATION = /^(0|1?\d|20)$/;
 
 // validations
