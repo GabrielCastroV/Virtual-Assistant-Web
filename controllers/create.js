@@ -8,12 +8,12 @@ createRouter.post('/', async (req, res) => {
     const { name, email, course, module, payday, attendance, grades } = req.body;
 
     if (!name || !email || !course || !module || !payday || !attendance || !grades) {
-        return res.status(401).json({ error: 'Todos los datos son requeridos' });
+        return res.status(401).json({ error: 'Todos los datos son requeridos.' });
     }
     const userExist = await User.findOne({ email: email });
 
     if (userExist) {
-        return res.status(406).json({ error: 'Usuario ya existe' });
+        return res.status(406).json({ error: 'Ese email ya ha sido utilizado.' });
     }
 
     const courses = {
@@ -49,7 +49,7 @@ createRouter.post('/', async (req, res) => {
         await newGrade.save();
     }
 
-    return res.status(200).json('Usuario creado correctamente.');
+    return res.status(200).json('Usuario creado correctamente ✔️');
 });
 
 module.exports = createRouter;
