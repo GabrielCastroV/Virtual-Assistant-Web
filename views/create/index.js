@@ -6,8 +6,9 @@ const courseInput = document.querySelector('#course-input');
 const moduleInput = document.querySelector('#module-input');
 const attendanceInput = document.querySelector('#attendance-input');
 const dateInput = document.querySelector('#date-input');
-const btn = document.querySelector('.btn');
+const btn = document.querySelector('#btn');
 const notesContainer = document.querySelector('#notes');
+const loader = document.querySelector('#loading-wave');
 const notification = document.querySelector('#notification');
 
 
@@ -124,6 +125,8 @@ notesContainer.addEventListener('input', (e) => {
 
 form.addEventListener('submit', async e => {
     e.preventDefault();
+    loader.classList.remove('hide');
+    btn.classList.add('hide');
     if (nameValidation && emailValidation && courseValidation && moduleValidation && attendanceValidation && dateValidation && noteValidation) {
         try {
             const student = {
@@ -144,12 +147,19 @@ form.addEventListener('submit', async e => {
             };
             // eslint-disable-next-line no-undef
             const { data } = await axios.post('/api/create', student);
+
+            loader.classList.add('hide');
+            btn.classList.remove('hide');
+
             notification.classList.remove('hidden');
             createNotification(false, data);
             setTimeout(() => {
                 notification.classList.add('hidden');
             }, 5000);
         } catch (error) {
+            loader.classList.add('hide');
+            btn.classList.remove('hide');
+
             notification.classList.remove('hidden');
             createNotification(true, error.response.data.error);
             setTimeout(() => {
@@ -157,8 +167,10 @@ form.addEventListener('submit', async e => {
             }, 5000);
         }
     } else {
+        loader.classList.add('hide');
+        btn.classList.remove('hide');
         notification.classList.remove('hidden');
-        createNotification(true, 'Todos los espacios deben ser completados ⚠️');
+        createNotification(true, 'Todos los espacios deben ser completados correctamente ⚠️');
         setTimeout(() => {
             notification.classList.add('hidden');
         }, 5000);

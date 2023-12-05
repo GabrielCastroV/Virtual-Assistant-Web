@@ -1039,18 +1039,21 @@ video {
 
 .notification {
   display: none;
-  position: absolute;
+  position: fixed;
   top: auto;
   left: auto;
   padding: 10px;
   background-color: rgb(244, 244, 210);
   border: 1px solid #ffffff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1;
 }
 
 .info-icon:hover + #notification {
   display: block;
+}
+
+.hide {
+  display: none;
 }
 
 .hover\:bg-allports-100:hover {
