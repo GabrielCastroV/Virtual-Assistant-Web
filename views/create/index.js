@@ -140,11 +140,10 @@ form.addEventListener('submit', async e => {
                     notesContainer?.children[4]?.children[1]?.value,
                     notesContainer?.children[5]?.children[1]?.value,
                 ],
-
             };
             // eslint-disable-next-line no-undef
-            await axios.post('/api/create', student);
-            console.log(student);
+            const { data } = await axios.post('/api/create', student);
+            console.log(data);
         } catch (error) {
             console.log(error.response.data.error);
         }

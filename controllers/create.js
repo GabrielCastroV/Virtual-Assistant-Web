@@ -1,5 +1,6 @@
 const { default: mongoose } = require('mongoose');
 const User = require('../models/user');
+const Grades = require('../models/grades');
 
 const createRouter = require('express').Router();
 
@@ -34,9 +35,21 @@ createRouter.post('/', async (req, res) => {
         attendance,
         verified: false,
     });
+    await newUser.save();
 
-    console.log(newUser);
-    return res.sendStatus(200);
+    for (let i = 0; i < module; i++) {
+        if (grades[i] == '') {
+            grades[i] = 0;
+        }
+        const newGrade = new Grades({
+            module: `${i + 1}`,
+            grade: `${grades[i]}`,
+            user: new mongoose.Types.ObjectId(`${newUser.id}`),
+        });
+        await newGrade.save();
+    }
+
+    return res.status(200).json('Usuario creado correctamente.');
 });
 
 module.exports = createRouter;
