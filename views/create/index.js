@@ -1,3 +1,4 @@
+import { createNotification } from '../components/notification.js'
 const form = document.querySelector('#form');
 const nameInput = document.querySelector('#name-input');
 const emailInput = document.querySelector('#email-input');
@@ -7,6 +8,7 @@ const attendanceInput = document.querySelector('#attendance-input');
 const dateInput = document.querySelector('#date-input');
 const btn = document.querySelector('.btn');
 const notesContainer = document.querySelector('#notes');
+const notification = document.querySelector('#notification');
 
 
 // Regex Validation
@@ -23,11 +25,10 @@ let moduleValidation = false;
 let attendanceValidation = false;
 let dateValidation = false;
 let noteValidation = false;
-btn.disabled = true;
 
 const validation = (input, regexValidation) => {
 
-    btn.disabled = nameValidation && emailValidation && courseValidation && moduleValidation && attendanceValidation && dateValidation && noteValidation ? false : true;
+    btn.disabled = (nameValidation && emailValidation && courseValidation && moduleValidation && attendanceValidation && dateValidation && noteValidation) ? false : true;
 
     if (input.value === '') {
         input.classList.remove('outline-red-700', 'focus:outline-red-700', 'focus:outline-japanese-laurel-300', 'outline-japanese-laurel-300');
@@ -143,11 +144,23 @@ form.addEventListener('submit', async e => {
             };
             // eslint-disable-next-line no-undef
             const { data } = await axios.post('/api/create', student);
-            console.log(data);
+            notification.classList.remove('hidden');
+            createNotification(false, data);
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000);
         } catch (error) {
-            console.log(error.response.data.error);
+            notification.classList.remove('hidden');
+            createNotification(true, error.response.data.error);
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000);
         }
     } else {
-        console.log('error pa');
+        notification.classList.remove('hidden');
+        createNotification(true, 'Todos los espacios deben ser completados ⚠️');
+        setTimeout(() => {
+            notification.classList.add('hidden');
+        }, 5000);
     }
 });
