@@ -10,6 +10,7 @@ const btn = document.querySelector('#btn');
 const notesContainer = document.querySelector('#notes');
 const loader = document.querySelector('#loading-wave');
 const notification = document.querySelector('#notification');
+const bot = document.querySelector('#bot');
 
 
 // Regex Validation
@@ -156,6 +157,8 @@ form.addEventListener('submit', async e => {
             setTimeout(() => {
                 notification.classList.add('hidden');
             }, 5000);
+            bot.classList.remove('hide');
+            form.classList.add('hide');
         } catch (error) {
             loader.classList.add('hide');
             btn.classList.remove('hide');
