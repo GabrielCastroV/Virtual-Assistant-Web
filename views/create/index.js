@@ -7,7 +7,8 @@ const moduleInput = document.querySelector('#module-input');
 const attendanceInput = document.querySelector('#attendance-input');
 const dateInput = document.querySelector('#date-input');
 const btn = document.querySelector('#btn');
-const notesContainer = document.querySelector('#notes');
+const notesContainer = document.querySelector('#notes-container');
+const infoContainer = document.querySelector('#info-container');
 const loader = document.querySelector('#loading-wave');
 const notification = document.querySelector('#notification');
 const bot = document.querySelector('#bot');
@@ -17,7 +18,7 @@ const bot = document.querySelector('#bot');
 const NAME_VALIDATION = /^([A-ZÁÉÍÓÚÑ][a-záéíóúñ]{1,15}\s){1}[A-ZÁÉÍÓÚÑ][a-záéíóúñ]{1,15}$/;
 const EMAIL_VALIDATION = /^[a-zA-Z0-9_+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;
 const DATE_VALIDATION = /^(202[0-4]-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$/;
-const NUMBER_VALIDATION = /^(0|1?\d|20)$/;
+const NUMBER_VALIDATION = /^(\d(\.\d{1})?|1?\d(\.\d{1})?|20)$/; 
 
 // validations
 let nameValidation = false;
@@ -84,10 +85,11 @@ courseInput.addEventListener('input', () => {
         <div class="flex flex-col w-full md:w-auto gap-2">
             <label for="note-input" class="font-bold text-allports-800">
                 Nota módulo ${index + 1}</label>
-            <input id="nota-${index + 1}" placeholder="0-20" name="note-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700" type="number" max="20" min="0">
+            <input id="nota-${index + 1}" placeholder="0-20" name="note-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700">
         </div>
         `;
     }
+    infoContainer.innerHTML = '<p class="text-xs text-allports-950">En caso de tener notas con decimales, separelas con un punto (.) Ejemplo: 19.5</p>'
     notesContainer.innerHTML = container;
 });
 
@@ -100,10 +102,11 @@ moduleInput.addEventListener('input', () => {
         <div class="flex flex-col w-full md:w-auto gap-2">
             <label for="note-input" class="font-bold text-allports-800">
                 Nota módulo ${index + 1}</label>
-            <input id="nota-${index + 1}" placeholder="0-20" name="note-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700" type="number" max="20" min="0">
+            <input id="nota-${index + 1}" placeholder="0-20" name="note-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700">
         </div>
         `;
     }
+    infoContainer.innerHTML = '<p class="text-xs text-allports-950">En caso de tener notas con decimales, separelas con un punto (.) Ejemplo: 19.5</p>'
     notesContainer.innerHTML = container;
 });
 
