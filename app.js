@@ -35,6 +35,7 @@ app.use(morgan('tiny'));
 app.use('/', express.static(path.resolve(__dirname, 'views', 'home')));
 app.use('/login', express.static(path.resolve(__dirname, 'views', 'login')));
 app.use('/create', express.static(path.resolve(__dirname, 'views', 'create')));
+app.use('/dashboard', express.static(path.resolve(__dirname, 'views', 'dashboard')));
 app.use('/styles', express.static(path.resolve(__dirname, 'views', 'styles')));
 app.use('/images', express.static(path.resolve(__dirname, 'img')));
 app.use('/components', express.static(path.resolve(__dirname, 'views', 'components')));
