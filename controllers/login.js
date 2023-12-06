@@ -6,7 +6,6 @@ loginRouter.post('/', async (req, res) => {
     if (!(email == process.env.USER_ADMIN && password == process.env.PASSWORD_ADMIN)) {
         return res.status(401).json({ error: 'Usuario o clave inválida' });
     }
-    console.log('logged');
     return res.sendStatus(202);
 });
 

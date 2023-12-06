@@ -1,8 +1,10 @@
+import { createNotification } from "../components/notification.js";
 const form = document.querySelector('#form');
 const emailInput = document.querySelector('#email-input');
 const passwordInput = document.querySelector('#password-input');
 const loader = document.querySelector('.loading-wave');
 const btn = document.querySelector('#form-btn');
+const notification = document.querySelector('#notification');
 
 form.addEventListener('submit', async e => {
     e.preventDefault();
@@ -24,6 +26,10 @@ form.addEventListener('submit', async e => {
         loader.classList.add('hidden');
         loader.classList.remove('flex');
         btn.classList.remove('hidden');
-        console.log(error.response.data.error);
+        notification.classList.remove('hidden');
+        createNotification(true, error.response.data.error);
+        setTimeout(() => {
+            notification.classList.add('hidden');
+        }, 5000);
     }
 });
