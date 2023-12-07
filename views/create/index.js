@@ -34,14 +34,14 @@ const validation = (input, regexValidation) => {
     btn.disabled = (nameValidation && emailValidation && courseValidation && moduleValidation && attendanceValidation && dateValidation && noteValidation) ? false : true;
 
     if (input.value === '') {
-        input.classList.remove('outline-red-700', 'focus:outline-red-700', 'focus:outline-japanese-laurel-300', 'outline-japanese-laurel-300');
+        input.classList.remove('outline-red-700', 'focus:outline-red-700', 'focus:outline-japanese-laurel-300', 'outline-japanese-laurel-300', 'shake');
         input.classList.add('focus:outline-allports-700');
     } else if (regexValidation) {
-        input.classList.remove('outline-red-700', 'focus:outline-red-700', 'focus:outline-allports-700');
+        input.classList.remove('outline-red-700', 'focus:outline-red-700', 'focus:outline-allports-700', 'shake');
         input.classList.add('focus:outline-japanese-laurel-300', 'outline-japanese-laurel-300');
     } else {
         input.classList.remove('focus:outline-allports-700', 'focus:outline-japanese-laurel-300', 'outline-japanese-laurel-300');
-        input.classList.add('focus:outline-red-700', 'outline-red-700', 'outline');
+        input.classList.add('focus:outline-red-700', 'outline-red-700', 'outline', 'shake');
     }
 };
 
