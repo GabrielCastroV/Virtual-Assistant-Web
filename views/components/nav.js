@@ -34,7 +34,7 @@ const createNavHome = () => {
           <!-- menu mobile -->
 
             <div class="fixed top-16 right-0 hidden left-0 bottom-0 justify-center items-center flex-col gap-4 text-transparent bg-allports-900 bg-opacity-60 backdrop-blur-md">
-                <a href="/login/" class="btn select-none bg-allports-50 hover:bg-allports-100 text-allports-950 border-l-allports-950 border rounded-lg p-4 w-32 text-center">Iniciar Sesión</a>
+                <a href="/login/" class="btn select-none bg-allports-50 hover:bg-allports-100 text-allports-950 border-l-allports-950 border rounded-lg p-4 w-2/4 text-center">Iniciar Sesión</a>
                 <a href="/create/" class="btn select-none bg-gradient-to-r from-allports-400 to-allports-600 hover:from-allports-500 hover:to-allports-700 rounded-lg p-4 w-2/4 text-center text-allports-50">Crear</a>
             </div>          
     </div>
