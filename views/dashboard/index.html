@@ -14,7 +14,27 @@
 <body class="bg-allports-50 font">
     <nav id="nav" class="fixed top-0 right-0 left-0 h-16 bg-allports-700">
     </nav>
-
+    <div id="loader-screen" class="h-screen pt-16 flex flex-col items-center justify-center gap-12">
+        <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+            <div class="wheel"></div>
+            <div class="hamster">
+                <div class="hamster__body">
+                    <div class="hamster__head">
+                        <div class="hamster__ear"></div>
+                        <div class="hamster__eye"></div>
+                        <div class="hamster__nose"></div>
+                    </div>
+                    <div class="hamster__limb hamster__limb--fr"></div>
+                    <div class="hamster__limb hamster__limb--fl"></div>
+                    <div class="hamster__limb hamster__limb--br"></div>
+                    <div class="hamster__limb hamster__limb--bl"></div>
+                    <div class="hamster__tail"></div>
+                </div>
+            </div>
+            <div class="spoke"></div>
+        </div>
+        <h2 id="main-loader" class="font-extrabold text-2xl text-allports-900">Cargando contenido...</h2>
+    </div>
 
     <script src="../components/nav.js"></script>
     <script src="index.js" type="module"></script>

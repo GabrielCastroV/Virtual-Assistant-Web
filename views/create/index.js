@@ -85,7 +85,7 @@ courseInput.addEventListener('input', () => {
         <div class="flex flex-col w-full md:w-auto gap-2">
             <label for="note-input" class="font-bold text-allports-800">
                 Nota módulo ${index + 1}</label>
-            <input id="nota-${index + 1}" placeholder="0-20" name="note-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700">
+            <input id="nota-${index + 1}" placeholder="0-20" name="note-input" spellcheck="false" autocomplete="off" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700">
         </div>
         `;
     }
@@ -102,7 +102,7 @@ moduleInput.addEventListener('input', () => {
         <div class="flex flex-col w-full md:w-auto gap-2">
             <label for="note-input" class="font-bold text-allports-800">
                 Nota módulo ${index + 1}</label>
-            <input id="nota-${index + 1}" placeholder="0-20" name="note-input" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700">
+            <input id="nota-${index + 1}" placeholder="0-20" name="note-input" spellcheck="false" autocomplete="off" class="rounded-lg p-2 bg-allports-100 outline-none duration-75 focus:outline-allports-700">
         </div>
         `;
     }
