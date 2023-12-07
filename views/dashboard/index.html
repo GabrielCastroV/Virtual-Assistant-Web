@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:wght@300;700&family=Montserrat:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 <body class="bg-allports-50 font">
     <nav id="nav" class="fixed top-0 right-0 left-0 h-16 bg-allports-700">
     </nav>
-    <div id="loader-screen" class="h-screen pt-16 flex flex-col items-center justify-center gap-12">
+    <div id="loader-screen" class="h-screen pt-16 flex flex-col items-center justify-center gap-12 hide">
         <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
             <div class="wheel"></div>
             <div class="hamster">
@@ -33,7 +33,33 @@
             </div>
             <div class="spoke"></div>
         </div>
-        <h2 id="main-loader" class="font-extrabold text-2xl text-allports-900">Cargando contenido...</h2>
+        <h2 id="text-loader" class="font-extrabold text-2xl text-allports-900">Cargando contenido...</h2>
+    </div>
+    <div id="main-container" class="h-screen pt-16 flex flex-col items-center justify-center gap-12 md:flex-row">
+        <div id="container" class=" w-full h-full md:w-2/4 md:h-2/4 flex justify-between items-center flex-col">
+            <div id="students-info" class="w-full flex flex-wrap justify-center gap-4 p-2">
+                <div id="numbers-students" class="p-4 w-32 border-allports-700 border rounded-md bg-allports-200 shadow-md flex justify-center items-center flex-col">
+                    <p class="text-sm text-center">Número de estudiantes</p>
+                    <div class="text-lg font-bold flex break-all">232332</div>
+                </div>
+                <div id="numbers-students" class="p-4 w-32 rounded-md bg-allports-200 border-allports-700 border shadow-md flex justify-center items-center flex-col">
+                    <p class="text-sm text-center">Inscripciones pendientes</p>
+                    <div class="text-lg font-bold">15</div>
+                </div>
+                <div id="numbers-students" class="p-4 w-32 rounded-md bg-allports-200 border-allports-700 border shadow-md flex justify-center items-center flex-col">
+                    <p class="text-sm text-center">Pago Movil pendientes</p>
+                    <div class="text-lg font-bold">24</div>
+                </div>
+                <div id="numbers-students" class="p-4 w-32 rounded-md bg-allports-200 border-allports-700 border shadow-md flex justify-center items-center flex-col">
+                    <p class="text-sm text-center">Total pendientes</p>
+                    <div class="text-lg font-bold">34</div>
+                </div>
+            </div>
+            <div id="registrations" class="bg-allports-300 w-11/12 h-2/4">
+                <div id="registrations-title" >Registros</div>
+            </div>
+            <div id="pagomovil">dsdsdsd</div>
+        </div>
     </div>
 
     <script src="../components/nav.js"></script>
