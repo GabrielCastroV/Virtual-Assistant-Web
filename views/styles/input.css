@@ -441,3 +441,7 @@
 .shake {
   animation: justshake 0.3s forwards;
 }
+
+#registrations {
+  height: 560px;
+}
