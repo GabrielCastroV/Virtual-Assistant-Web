@@ -442,10 +442,13 @@
   animation: justshake 0.3s forwards;
 }
 
-#registrations {
+#registrations, #modules{
   height: 560px;
 }
-#modules {
-  height: 560px;
+
+@media(min-width: 768px){
+  #registrations, #modules {
+    height: 480px;
+  }
 }
 
