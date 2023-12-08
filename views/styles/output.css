@@ -1575,6 +1575,14 @@ video {
     width: 100%;
   }
 
+  .md\:w-5\/6 {
+    width: 83.333333%;
+  }
+
+  .md\:w-11\/12 {
+    width: 91.666667%;
+  }
+
   .md\:flex-row {
     flex-direction: row;
   }
@@ -1607,6 +1615,10 @@ video {
 
   .lg\:w-2\/5 {
     width: 40%;
+  }
+
+  .lg\:w-4\/5 {
+    width: 80%;
   }
 }
 
