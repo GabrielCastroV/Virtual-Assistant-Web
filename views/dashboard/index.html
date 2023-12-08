@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:wght@300;700&family=Montserrat:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:wght@300;700&family=Montserrat:wght@100;300;400;500;600;700&display=swap" rel="stylesheet"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../styles/output.css" rel="stylesheet">
-    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/023/986/534/large_2x/telegram-logo-telegram-logo-transparent-telegram-icon-transparent-free-free-png.png">
+    <!-- <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/023/986/534/large_2x/telegram-logo-telegram-logo-transparent-telegram-icon-transparent-free-free-png.png"> -->
     <title>Dashboard</title>
 </head>
 <body class="bg-allports-50 font">
@@ -35,8 +35,8 @@
         </div>
         <h2 id="text-loader" class="font-extrabold text-2xl text-allports-900">Cargando contenido...</h2>
     </div>
-    <div id="main-container" class="h-full pt-16 flex flex-col items-center justify-center gap-12 md:flex-row">
-        <div id="container" class=" w-full mb-24 md:w-2/4 md:h-2/4 flex justify-between items-center flex-col gap-4">
+    <div id="main-container" class="h-full pt-16 flex flex-col items-center justify-center gap-12 md:flex-row w-full">
+        <div id="container" class=" w-full mb-8 md:mb-0 md:w-3/4 md:h-2/4 flex justify-between items-center flex-col gap-4">
             <div id="students-info" class="w-full flex flex-wrap justify-center gap-4 p-2">
                 <div id="numbers-students" class="p-2 border-allports-700 border gap-2 rounded-md bg-allports-200 shadow-md flex justify-center items-center">
                     <div class="flex flex-col justify-center items-center w-20">
@@ -76,77 +76,153 @@
                 </div>
 
             </div>
-            <div id="registrations" class="bg-allports-300 shadow-lg rounded-lg w-11/12 flex justify-between items-center p-2 flex-col">
-                <div id="registrations-title" class="text-center w-11/12 border-b text-lg font-semibold border-allports-950">Inscripciones</div>
-                <div id="registrations-scroll" class="w-full h-full pt-4 flex flex-col gap-4 overflow-scroll"> 
-                    <div id="registrations-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
-                        <p class="break-all text-sm"> 
-                            <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
-                            <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
-                            <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
-                            <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
-                            <span class="font-semibold">Monto:</span>  120 USD <br>
-                            <span class="font-semibold">Número de orden:</span> #1312321313
-                        </p>
-                        <div id="btn-container" class="">
-                            <button id="registrations-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
-                            <button id="registrations-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+            <div id="payments-container" class="flex flex-col justify-center items-center md:flex-row w-full md:justify-between md:gap-8">
+                <div id="registrations" class="bg-allports-300 shadow-lg rounded-lg w-11/12 flex justify-between items-center p-2 flex-col">
+                    <div id="registrations-title" class="text-center w-11/12 border-b text-lg font-semibold border-allports-950">Inscripciones</div>
+                    <div id="registrations-scroll" class="w-full h-full mt-4 flex flex-col gap-4 overflow-scroll"> 
+                        <div id="registrations-info-container" class="w-full  bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                            <p class="break-all text-sm"> 
+                                <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
+                                <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
+                                <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
+                                <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
+                                <span class="font-semibold">Monto:</span>  120 USD <br>
+                                <span class="font-semibold">Número de orden:</span> #1312321313
+                            </p>
+                            <div id="btn-container" class="">
+                                <button id="registrations-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
+                                <button id="registrations-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                            </div>
+                        </div>
+                        <div id="registrations-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                            <p class="break-all text-sm"> 
+                                <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
+                                <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
+                                <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
+                                <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
+                                <span class="font-semibold">Monto:</span>  120 USD <br>
+                                <span class="font-semibold">Número de orden:</span> #1312321313
+                            </p>
+                            <div id="btn-container" class="">
+                                <button id="registrations-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
+                                <button id="registrations-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                            </div>
+                        </div>
+                        <div id="registrations-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                            <p class="break-all text-sm"> 
+                                <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
+                                <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
+                                <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
+                                <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
+                                <span class="font-semibold">Monto:</span>  120 USD <br>
+                                <span class="font-semibold">Número de orden:</span> #1312321313
+                            </p>
+                            <div id="btn-container" class="">
+                                <button id="registrations-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
+                                <button id="registrations-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                            </div>
+                        </div>
+                        <div id="registrations-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                            <p class="break-all text-sm"> 
+                                <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
+                                <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
+                                <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
+                                <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
+                                <span class="font-semibold">Monto:</span>  120 USD <br>
+                                <span class="font-semibold">Número de orden:</span> #1312321313
+                            </p>
+                            <div id="btn-container" class="">
+                                <button id="registrations-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
+                                <button id="registrations-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                            </div>
+                        </div>
+                        <div id="registrations-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                            <p class="break-all text-sm"> 
+                                <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
+                                <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
+                                <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
+                                <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
+                                <span class="font-semibold">Monto:</span>  120 USD <br>
+                                <span class="font-semibold">Número de orden:</span> #1312321313
+                            </p>
+                            <div id="btn-container" class="">
+                                <button id="registrations-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
+                                <button id="registrations-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                            </div>
                         </div>
                     </div>
-                    <div id="registrations-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
-                        <p class="break-all text-sm"> 
-                            <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
-                            <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
-                            <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
-                            <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
-                            <span class="font-semibold">Monto:</span>  120 USD <br>
-                            <span class="font-semibold">Número de orden:</span> #1312321313
-                        </p>
-                        <div id="btn-container" class="">
-                            <button id="registrations-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
-                            <button id="registrations-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                </div>
+                <div id="modules" class="bg-allports-300 mt-4 md:mt-0 shadow-lg rounded-lg w-11/12 flex justify-between items-center p-2 flex-col">
+                    <div id="modules-title" class="text-center w-11/12 border-b text-lg font-semibold border-allports-950">Pago de módulos</div>
+                    <div id="modules-scroll" class="w-full h-full mt-4 flex flex-col gap-4 overflow-scroll"> 
+                        <div id="modules-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                            <p class="break-all text-sm"> 
+                                <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
+                                <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
+                                <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
+                                <span class="font-semibold">Monto:</span>  3702 VES <br>
+                                <span class="font-semibold">Número de orden:</span> #1312
+                            </p>
+                            <div id="btn-container" class="">
+                                <button id="modules-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
+                                <button id="modules-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                            </div>
                         </div>
-                    </div>
-                    <div id="registrations-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
-                        <p class="break-all text-sm"> 
-                            <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
-                            <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
-                            <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
-                            <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
-                            <span class="font-semibold">Monto:</span>  120 USD <br>
-                            <span class="font-semibold">Número de orden:</span> #1312321313
-                        </p>
-                        <div id="btn-container" class="">
-                            <button id="registrations-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
-                            <button id="registrations-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                        <div id="modules-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                            <p class="break-all text-sm"> 
+                                <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
+                                <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
+                                <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
+                                <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
+                                <span class="font-semibold">Monto:</span>  120 USD <br>
+                                <span class="font-semibold">Número de orden:</span> #1312321313
+                            </p>
+                            <div id="btn-container" class="">
+                                <button id="modules-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
+                                <button id="modules-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                            </div>
                         </div>
-                    </div>
-                    <div id="registrations-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
-                        <p class="break-all text-sm"> 
-                            <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
-                            <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
-                            <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
-                            <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
-                            <span class="font-semibold">Monto:</span>  120 USD <br>
-                            <span class="font-semibold">Número de orden:</span> #1312321313
-                        </p>
-                        <div id="btn-container" class="">
-                            <button id="registrations-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
-                            <button id="registrations-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                        <div id="modules-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                            <p class="break-all text-sm"> 
+                                <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
+                                <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
+                                <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
+                                <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
+                                <span class="font-semibold">Monto:</span>  120 USD <br>
+                                <span class="font-semibold">Número de orden:</span> #1312321313
+                            </p>
+                            <div id="btn-container" class="">
+                                <button id="modules-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
+                                <button id="modules-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                            </div>
                         </div>
-                    </div>
-                    <div id="registrations-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
-                        <p class="break-all text-sm"> 
-                            <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
-                            <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
-                            <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
-                            <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
-                            <span class="font-semibold">Monto:</span>  120 USD <br>
-                            <span class="font-semibold">Número de orden:</span> #1312321313
-                        </p>
-                        <div id="btn-container" class="">
-                            <button id="registrations-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
-                            <button id="registrations-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                        <div id="modules-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                            <p class="break-all text-sm"> 
+                                <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
+                                <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
+                                <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
+                                <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
+                                <span class="font-semibold">Monto:</span>  120 USD <br>
+                                <span class="font-semibold">Número de orden:</span> #1312321313
+                            </p>
+                            <div id="btn-container" class="">
+                                <button id="modules-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
+                                <button id="modules-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                            </div>
+                        </div>
+                        <div id="modules-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                            <p class="break-all text-sm"> 
+                                <span class="font-semibold">Nombre:</span> Pedro Sanchez <br>
+                                <span class="font-semibold">Email:</span>  gabrielenriquecas@gmail.com <br>
+                                <span class="font-semibold">Teléfono:</span>  0212-1231234 <br>
+                                <span class="font-semibold">Curso:</span>  Programacion Fullstack <br>
+                                <span class="font-semibold">Monto:</span>  120 USD <br>
+                                <span class="font-semibold">Número de orden:</span> #1312321313
+                            </p>
+                            <div id="btn-container" class="">
+                                <button id="modules-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
+                                <button id="modules-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
