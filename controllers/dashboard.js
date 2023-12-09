@@ -19,7 +19,6 @@ dashboardRouter.get('/', async (request, res) => {
         console.log(error);
         return res.status(500).json({ error: 'Hubo un error en el servidor :(' });
     }
-
 });
 
 module.exports = dashboardRouter;
