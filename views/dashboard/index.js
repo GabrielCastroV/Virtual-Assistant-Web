@@ -14,6 +14,10 @@ const loaderScreen = document.querySelector('#loader-screen');
         loaderScreen.classList.add('hide');
         students.innerHTML = data.students.length;
         bcv.innerHTML = `${data.dollarPrice} bs`;
+        const verifiedRegistration = data.registrations.filter(e => !e.verified);
+        pendingRegistration.innerHTML = verifiedRegistration.length;
+        const verifiedPagoMovil = data.pagoMovil.filter(e => !e.verified);
+        monthlyPayment.innerHTML = verifiedPagoMovil.length;
     } catch (error) {
         console.log(error);
         textLoader.outerHTML = '<h2 id="text-loader" class="font-extrabold text-2xl text-red-500">Error del servidor :(</h2>';

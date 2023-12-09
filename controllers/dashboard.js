@@ -1,3 +1,4 @@
+const PagoMovil = require('../models/pagomovil');
 const Registration = require('../models/registrations');
 const User = require('../models/user');
 const { getDollarPrices } = require('venecodollar');
@@ -9,7 +10,8 @@ dashboardRouter.get('/', async (request, res) => {
     const info = await getDollarPrices();
     const dollarPrice = info[5].dollar;
     const registrations = await Registration.find();
-    return res.status(200).json({ students, dollarPrice, registrations });
+    const pagoMovil = await PagoMovil.find();
+    return res.status(200).json({ students, dollarPrice, registrations, pagoMovil });
 });
 
 module.exports = dashboardRouter;
