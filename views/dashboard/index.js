@@ -12,12 +12,11 @@ const loaderScreen = document.querySelector('#loader-screen');
         const { data } = await axios.get('/api/dashboard');
         mainContainer.classList.remove('hide');
         loaderScreen.classList.add('hide');
-        console.log(data);
         students.innerHTML = data.students.length;
         bcv.innerHTML = `${data.dollarPrice} bs`;
     } catch (error) {
         console.log(error);
-        textLoader.innerHTML = 'Error del servidor';
+        textLoader.outerHTML = '<h2 id="text-loader" class="font-extrabold text-2xl text-red-500">Error del servidor :(</h2>';
     }
 })();
 

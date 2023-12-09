@@ -1,6 +1,5 @@
 const { default: mongoose } = require('mongoose');
 const User = require('../models/user');
-const Grades = require('../models/grades');
 const { getDollarPrices } = require('venecodollar');
 
 const dashboardRouter = require('express').Router();
