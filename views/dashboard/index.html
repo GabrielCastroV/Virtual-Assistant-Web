@@ -2,19 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:wght@300;700&family=Montserrat:wght@100;300;400;500;600;700&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:wght@300;700&family=Montserrat:wght@100;300;400;500;600;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../styles/output.css" rel="stylesheet">
-    <!-- <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/023/986/534/large_2x/telegram-logo-telegram-logo-transparent-telegram-icon-transparent-free-free-png.png"> -->
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/023/986/534/large_2x/telegram-logo-telegram-logo-transparent-telegram-icon-transparent-free-free-png.png">
     <title>Dashboard</title>
 </head>
 <body class="bg-allports-50 font">
     <nav id="nav" class="fixed top-0 right-0 left-0 h-16 bg-allports-700">
     </nav>
-    <div id="loader-screen" class="h-screen pt-16 flex flex-col items-center justify-center gap-12 hide">
+    <div id="loader-screen" class="h-screen pt-16 flex flex-col items-center justify-center gap-12">
         <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
             <div class="wheel"></div>
             <div class="hamster">
@@ -35,12 +35,12 @@
         </div>
         <h2 id="text-loader" class="font-extrabold text-2xl text-allports-900">Cargando contenido...</h2>
     </div>
-    <div id="main-container" class="h-full pt-16 flex flex-col items-center justify-center gap-12 md:flex-row w-full">
+    <div id="main-container" class="hide h-full pt-16 flex flex-col items-center justify-center gap-12 md:flex-row w-full">
         <div id="container" class=" w-full mb-8 md:mb-0 md:w-11/12 lg:w-4/5 md:h-2/4 flex justify-between items-center flex-col gap-4">
             <div id="students-info" class="w-full flex flex-wrap justify-center gap-4 p-2 lg:justify-evenly">
                 <div id="numbers-students" class="p-2 border-allports-700 border gap-2 rounded-md bg-allports-200 shadow-md flex justify-center items-center text-allports-950">
                     <div class="flex flex-col justify-center items-center w-20 lg:w-32">
-                        <div class="text-lg lg:text-2xl font-bold flex break-all">3242</div>
+                        <div id="students" class="text-lg lg:text-2xl font-bold flex break-all">-</div>
                         <p class="text-xs lg:text-sm text-center">Estudiantes</p>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 lg:w-12 lg:h-12">
@@ -49,16 +49,7 @@
                 </div>
                 <div id="numbers-students" class="p-2 border-allports-700 border gap-2 rounded-md bg-allports-200 shadow-md flex justify-center items-center text-allports-950">
                     <div class="flex flex-col justify-center items-center w-20 lg:w-32">
-                        <div class="text-lg lg:text-2xl font-bold flex break-all">19</div>
-                        <p class="text-xs lg:text-sm text-center">Mensualidades pendientes</p>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 lg:w-12 lg:h-12">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
-                      </svg>                                                                
-                </div>
-                <div id="numbers-students" class="p-2 border-allports-700 border gap-2 rounded-md bg-allports-200 shadow-md flex justify-center items-center text-allports-950">
-                    <div class="flex flex-col justify-center items-center w-20 lg:w-32">
-                        <div class="text-lg lg:text-2xl font-bold flex break-all">47</div>
+                        <div id="pending-registrations" class="text-lg lg:text-2xl font-bold flex break-all">-</div>
                         <p class="text-xs lg:text-sm text-center">Registros pendientes</p>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 lg:w-12 lg:h-12">
@@ -67,7 +58,16 @@
                 </div>
                 <div id="numbers-students" class="p-2 border-allports-700 border gap-2 rounded-md bg-allports-200 shadow-md flex justify-center items-center text-allports-950">
                     <div class="flex flex-col justify-center items-center w-20 lg:w-32">
-                        <div class="text-lg lg:text-2xl font-bold flex break-all">36.2 bs</div>
+                        <div id="monthly-payment" class="text-lg lg:text-2xl font-bold flex break-all">-</div>
+                        <p class="text-xs lg:text-sm text-center">Mensualidades pendientes</p>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 lg:w-12 lg:h-12">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                      </svg>                                                                
+                </div>
+                <div id="numbers-students" class="p-2 border-allports-700 border gap-2 rounded-md bg-allports-200 shadow-md flex justify-center items-center text-allports-950">
+                    <div class="flex flex-col justify-center items-center w-20 lg:w-32">
+                        <div id="bcv" class="text-lg lg:text-2xl font-bold flex break-all">-</div>
                         <p class="text-xs lg:text-sm text-center">Tasa BCV</p>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 lg:w-12 lg:h-12">
