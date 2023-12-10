@@ -35,8 +35,8 @@ createRouter.post('/', async (req, res) => {
         attendance,
         verified: false,
     });
-    await newUser.save();
-
+    const savedUser = await newUser.save();
+    console.log(savedUser);
     for (let i = 0; i < module; i++) {
         if (grades[i] == '') {
             grades[i] = 0;
@@ -46,7 +46,10 @@ createRouter.post('/', async (req, res) => {
             grade: `${grades[i]}`,
             user: new mongoose.Types.ObjectId(`${newUser.id}`),
         });
-        await newGrade.save();
+        const savedGrade = await newGrade.save();
+        console.log(savedGrade);
+        savedUser.grades = savedUser?.grades?.concat(savedGrade._id);
+        await savedUser.save();
     }
 
     return res.status(200).json('Usuario creado correctamente ✔️');

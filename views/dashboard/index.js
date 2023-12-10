@@ -58,8 +58,8 @@ const moduleContainer = document.querySelector('#modules-scroll');
                         <span class="font-semibold text-allports-950">Orden:</span> #${unverifiedRegistration[i].order_id}
                     </p>
                     <div id="btn-container" class="flex gap-4">
-                        <button id="registrations-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
-                        <button id="registrations-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                        <button id="confirm-registration-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
+                        <button id="delete-registration-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
                     </div>
                 </div>
                 `;
@@ -99,8 +99,8 @@ const moduleContainer = document.querySelector('#modules-scroll');
                         <span class="font-semibold text-allports-950">Referencia:</span> #${unverifiedRegistration[i].order_id}
                     </p>
                     <div id="btn-container" class="flex gap-4">
-                        <button id="registrations-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
-                        <button id="registrations-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                        <button id="confirm-registration-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
+                        <button id="delete-registration-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
                     </div>
                 </div>
                 `;
@@ -157,8 +157,8 @@ const moduleContainer = document.querySelector('#modules-scroll');
                     <span class="font-semibold text-allports-950">Referencia:</span> #${unverifiedPagoMovil[i].ref_number}
                     </p>
                     <div id="btn-container" class="flex gap-4">
-                        <button id="modules-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
-                        <button id="modules-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
+                        <button id="confirm-modules-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
+                        <button id="delete-modules-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
                     </div>
                 </div>
                 `;
