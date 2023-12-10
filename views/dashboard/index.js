@@ -24,11 +24,12 @@ const moduleContainer = document.querySelector('#modules-scroll');
         const unverifiedRegistration = data.registrations.filter(e => !e.verified);
         const unverifiedPagoMovil = data.pagoMovil.filter(e => !e.verified);
 
-        const courses = data.courses;
+        // ajusto los contenedores al centro
+        registrationContainer.classList.remove('justify-center');
+        moduleContainer.classList.remove('justify-center');
 
-        console.log(unverifiedPagoMovil);
-        console.log(unverifiedRegistration);
-        console.log(courses);
+        // obtengo los cursos disponibles
+        const courses = data.courses;
 
         // muestro la cantidad de pagos que no han sido verificados
         pendingRegistration.innerHTML = unverifiedRegistration.length;
@@ -39,7 +40,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
             if (unverifiedRegistration[i].currency === 'USD') {
                 // en caso de ser el pago en tarjeta de credito
                 registrationContainer.innerHTML += `
-                <div id="registrations-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                <div id="registrations-info-container ${unverifiedRegistration[i]._id}" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
                     <div id="registrations-title-container" class="flex gap-2 mb-4">
                         <p id="registrations-title" class="text-allports-950 font-bold text-base">
                             Tarjeta de crédito
@@ -82,7 +83,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
 
                 // en caso de ser un pago movil
                 registrationContainer.innerHTML += `
-                <div id="registrations-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                <div id="registrations-info-container ${unverifiedRegistration[i]._id}" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
                     <div id="registrations-title-container" class="flex gap-2 mb-4">
                         <p id="registrations-title" class="text-allports-950 font-bold text-base">
                             Pago Movil 
@@ -105,7 +106,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
                 `;
             }
         }
-        registrationContainer.classList.remove('justify-center');
+
         // de no haber pagos relleno el contenedor con un mensaje de ausencia de pagos
         if (unverifiedRegistration.length === 0) {
             registrationContainer.innerHTML = `
@@ -140,7 +141,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
 
             // en caso de ser un pago movil
             moduleContainer.innerHTML += `
-                <div id="modules-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                <div id="modules-info-container ${unverifiedPagoMovil[i]._id}" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
                     <div id="modules-title-container" class="flex gap-2 mb-4">
                         <p id="modules-title" class="text-allports-950 font-bold text-base">
                             Pago Movil 
@@ -163,7 +164,6 @@ const moduleContainer = document.querySelector('#modules-scroll');
                 `;
         }
         // de no haber pagos relleno el contenedor con un mensaje de ausencia de pagos
-        moduleContainer.classList.remove('justify-center');
         if (unverifiedPagoMovil.length === 0) {
             moduleContainer.innerHTML = `
             <div id="no-registrations" class="flex justify-center items-center gap-4 bg-allports-50 p-6 rounded-3xl font-semibold text-allports-900">
