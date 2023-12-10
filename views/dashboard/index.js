@@ -24,6 +24,12 @@ const moduleContainer = document.querySelector('#modules-scroll');
         const unverifiedRegistration = data.registrations.filter(e => !e.verified);
         const unverifiedPagoMovil = data.pagoMovil.filter(e => !e.verified);
 
+        const courses = data.courses;
+
+        console.log(unverifiedPagoMovil);
+        console.log(unverifiedRegistration);
+        console.log(courses);
+
         // muestro la cantidad de pagos que no han sido verificados
         pendingRegistration.innerHTML = unverifiedRegistration.length;
         monthlyPayment.innerHTML = unverifiedPagoMovil.length;
@@ -46,7 +52,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
                         <span class="font-semibold text-allports-950">Nombre:</span> ${unverifiedRegistration[i].name} <br>
                         <span class="font-semibold text-allports-950">Email:</span>  ${unverifiedRegistration[i].email} <br>
                         <span class="font-semibold text-allports-950">Teléfono:</span>  ${unverifiedRegistration[i].phone} <br>
-                        <span class="font-semibold text-allports-950">Curso:</span>  ${unverifiedRegistration[i].course} (${'pendiente'})<br>
+                        <span class="font-semibold text-allports-950">Curso:</span>  ${unverifiedRegistration[i].course} (${unverifiedRegistration[i].total} ${unverifiedRegistration[i].currency})<br>
                         <span class="font-semibold text-allports-950">Monto:</span>   ${unverifiedRegistration[i].total} ${unverifiedRegistration[i].currency}<br>
                         <span class="font-semibold text-allports-950">Orden:</span> #${unverifiedRegistration[i].order_id}
                     </p>
@@ -57,6 +63,23 @@ const moduleContainer = document.querySelector('#modules-scroll');
                 </div>
                 `;
             } else if (unverifiedRegistration[i].currency === 'VES') {
+                let dataCourse = unverifiedRegistration[i].course;
+                if (dataCourse.includes('Marketing') && dataCourse.includes('Online')) {
+                    dataCourse = courses[5].registration_price;
+                } else if (dataCourse.includes('Programaci') && dataCourse.includes('Online')) {
+                    dataCourse = courses[4].registration_price;
+                } else if (dataCourse.includes('Programaci')) {
+                    dataCourse = courses[0].registration_price;
+                } else if (dataCourse.includes('Dise')) {
+                    dataCourse = courses[1].registration_price;
+                } else if (dataCourse.includes('Marketing')) {
+                    dataCourse = courses[2].registration_price;
+                } else if (dataCourse.includes('Fotograf')) {
+                    dataCourse = courses[3].registration_price;
+                } else if (dataCourse.includes('Rob')) {
+                    dataCourse = courses[6].registration_price;
+                }
+
                 // en caso de ser un pago movil
                 registrationContainer.innerHTML += `
                 <div id="registrations-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
@@ -70,7 +93,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
                     </div>
                     <p class="break-all text-sm text-allports-900 lg:text-base"> 
                         <span class="font-semibold text-allports-950">Email:</span>  ${unverifiedRegistration[i].email} <br>
-                        <span class="font-semibold text-allports-950">Curso:</span>  ${unverifiedRegistration[i].course} (${'pendiente'})<br>
+                        <span class="font-semibold text-allports-950">Curso:</span>  ${unverifiedRegistration[i].course} (${dataCourse * data.dollarPrice} bs)<br>
                         <span class="font-semibold text-allports-950">Monto:</span>   ${unverifiedRegistration[i].total} ${unverifiedRegistration[i].currency}<br>
                         <span class="font-semibold text-allports-950">Referencia:</span> #${unverifiedRegistration[i].order_id}
                     </p>
@@ -82,8 +105,8 @@ const moduleContainer = document.querySelector('#modules-scroll');
                 `;
             }
         }
-        // de no haber pagos relleno el contenedor con un mensaje de ausencia de pagos
         registrationContainer.classList.remove('justify-center');
+        // de no haber pagos relleno el contenedor con un mensaje de ausencia de pagos
         if (unverifiedRegistration.length === 0) {
             registrationContainer.innerHTML = `
             <div id="no-registrations" class="flex justify-center items-center gap-4 bg-allports-50 p-6 rounded-3xl font-semibold text-allports-900">
@@ -98,6 +121,23 @@ const moduleContainer = document.querySelector('#modules-scroll');
 
         // relleno el contenedor de pagos de módulos
         for (let i = 0; i < unverifiedPagoMovil.length; i++) {
+            let dataCourse = `${unverifiedPagoMovil[i].course} ${unverifiedPagoMovil[i].modality}`;
+            if (dataCourse.includes('Marketing') && dataCourse.includes('Online')) {
+                dataCourse = courses[5].module_price;
+            } else if (dataCourse.includes('Programaci') && dataCourse.includes('Online')) {
+                dataCourse = courses[4].module_price;
+            } else if (dataCourse.includes('Programaci')) {
+                dataCourse = courses[0].module_price;
+            } else if (dataCourse.includes('Dise')) {
+                dataCourse = courses[1].module_price;
+            } else if (dataCourse.includes('Marketing')) {
+                dataCourse = courses[2].module_price;
+            } else if (dataCourse.includes('Fotograf')) {
+                dataCourse = courses[3].module_price;
+            } else if (dataCourse.includes('Rob')) {
+                dataCourse = courses[6].module_price;
+            }
+
             // en caso de ser un pago movil
             moduleContainer.innerHTML += `
                 <div id="modules-info-container" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
@@ -111,7 +151,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
                     </div>
                     <p class="break-all text-sm text-allports-900 lg:text-base"> 
                     <span class="font-semibold text-allports-950">Email:</span>  ${unverifiedPagoMovil[i].email} <br>
-                    <span class="font-semibold text-allports-950">Curso:</span>  ${unverifiedPagoMovil[i].course} (${'pendiente'})<br>
+                    <span class="font-semibold text-allports-950">Curso:</span>  ${unverifiedPagoMovil[i].course} ${unverifiedPagoMovil[i].modality} (${dataCourse * data.dollarPrice} bs)<br>
                     <span class="font-semibold text-allports-950">Monto:</span>   ${unverifiedPagoMovil[i].amount} bs<br>
                     <span class="font-semibold text-allports-950">Referencia:</span> #${unverifiedPagoMovil[i].ref_number}
                     </p>
