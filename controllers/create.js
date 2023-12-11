@@ -36,7 +36,7 @@ createRouter.post('/', async (req, res) => {
         verified: false,
     });
     const savedUser = await newUser.save();
-    console.log(savedUser);
+
     for (let i = 0; i < module; i++) {
         if (grades[i] == '') {
             grades[i] = 0;
@@ -47,7 +47,7 @@ createRouter.post('/', async (req, res) => {
             user: new mongoose.Types.ObjectId(`${newUser.id}`),
         });
         const savedGrade = await newGrade.save();
-        console.log(savedGrade);
+
         savedUser.grades = savedUser?.grades?.concat(savedGrade._id);
         await savedUser.save();
     }

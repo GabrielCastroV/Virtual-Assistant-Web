@@ -6,7 +6,7 @@ const { getDollarPrices } = require('venecodollar');
 
 const dashboardRouter = require('express').Router();
 
-dashboardRouter.get('/', async (request, res) => {
+dashboardRouter.get('/', async (req, res) => {
     try {
         const students = await User.find();
         const info = await getDollarPrices();
@@ -18,6 +18,29 @@ dashboardRouter.get('/', async (request, res) => {
     } catch (error) {
         console.log(error);
         return res.status(500).json({ error: 'Hubo un error en el servidor :(' });
+    }
+});
+
+dashboardRouter.delete('/:id', async (req, res) => {
+    const asd = req.body;
+    console.log(asd);
+
+    if (!asd) {
+        try {
+            await PagoMovil.findByIdAndDelete(req.params.id);
+            return res.status(200).json('Eliminado 🗑️');
+        } catch (error) {
+            return res.status(400).json({ error: 'Error al eliminar el pago ✖️' });
+        }
+    }
+
+    if (!asd) {
+        try {
+            await Registration.findByIdAndDelete(req.params.id);
+            return res.status(200).json('Eliminado 🗑️');
+        } catch (error) {
+            return res.status(400).json({ error: 'Error al eliminar el pago ✖️' });
+        }
     }
 });
 

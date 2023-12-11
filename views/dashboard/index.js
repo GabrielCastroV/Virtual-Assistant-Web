@@ -1,3 +1,4 @@
+import { createNotification } from '../components/notification.js';
 const students = document.querySelector('#students');
 const monthlyPayment = document.querySelector('#monthly-payment');
 const pendingRegistration = document.querySelector('#pending-registrations');
@@ -7,6 +8,7 @@ const mainContainer = document.querySelector('#main-container');
 const loaderScreen = document.querySelector('#loader-screen');
 const registrationContainer = document.querySelector('#registrations-scroll');
 const moduleContainer = document.querySelector('#modules-scroll');
+const notification = document.querySelector('#notification');
 
 (async () => {
     try {
@@ -40,7 +42,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
             if (unverifiedRegistration[i].currency === 'USD') {
                 // en caso de ser el pago en tarjeta de credito
                 registrationContainer.innerHTML += `
-                <div id="registrations-info-container ${unverifiedRegistration[i]._id}" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                <div id="${unverifiedRegistration[i]._id}" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center registrations-info-container">
                     <div id="registrations-title-container" class="flex gap-2 mb-4">
                         <p id="registrations-title" class="text-allports-950 font-bold text-base">
                             Tarjeta de crédito
@@ -49,7 +51,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
                         </svg>
                     </div>
-                    <p class="break-all text-sm text-allports-900 lg:text-base"> 
+                    <p class="hide break-all text-sm text-allports-900 lg:text-base"> 
                         <span class="font-semibold text-allports-950">Nombre:</span> ${unverifiedRegistration[i].name} <br>
                         <span class="font-semibold text-allports-950">Email:</span>  ${unverifiedRegistration[i].email} <br>
                         <span class="font-semibold text-allports-950">Teléfono:</span>  ${unverifiedRegistration[i].phone} <br>
@@ -57,6 +59,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
                         <span class="font-semibold text-allports-950">Monto:</span>   ${unverifiedRegistration[i].total} ${unverifiedRegistration[i].currency}<br>
                         <span class="font-semibold text-allports-950">Orden:</span> #${unverifiedRegistration[i].order_id}
                     </p>
+                    <span id="delete-loader" class="loader "></span>
                     <div id="btn-container" class="flex gap-4">
                         <button id="confirm-registration-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
                         <button id="delete-registration-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
@@ -83,7 +86,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
 
                 // en caso de ser un pago movil
                 registrationContainer.innerHTML += `
-                <div id="registrations-info-container ${unverifiedRegistration[i]._id}" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                <div id="${unverifiedRegistration[i]._id}" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center registrations-info-container">
                     <div id="registrations-title-container" class="flex gap-2 mb-4">
                         <p id="registrations-title" class="text-allports-950 font-bold text-base">
                             Pago Movil 
@@ -98,6 +101,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
                         <span class="font-semibold text-allports-950">Monto:</span>   ${unverifiedRegistration[i].total} ${unverifiedRegistration[i].currency}<br>
                         <span class="font-semibold text-allports-950">Referencia:</span> #${unverifiedRegistration[i].order_id}
                     </p>
+                    <span id="delete-loader" class="loader"></span>
                     <div id="btn-container" class="flex gap-4">
                         <button id="confirm-registration-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
                         <button id="delete-registration-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
@@ -141,7 +145,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
 
             // en caso de ser un pago movil
             moduleContainer.innerHTML += `
-                <div id="modules-info-container ${unverifiedPagoMovil[i]._id}" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center">
+                <div id="${unverifiedPagoMovil[i]._id}" class="w-full bg-allports-100 shadow-md p-4 rounded-lg flex flex-col justify-center items-center modules-info-container">
                     <div id="modules-title-container" class="flex gap-2 mb-4">
                         <p id="modules-title" class="text-allports-950 font-bold text-base">
                             Pago Movil 
@@ -156,6 +160,7 @@ const moduleContainer = document.querySelector('#modules-scroll');
                     <span class="font-semibold text-allports-950">Monto:</span>   ${unverifiedPagoMovil[i].amount} bs<br>
                     <span class="font-semibold text-allports-950">Referencia:</span> #${unverifiedPagoMovil[i].ref_number}
                     </p>
+                    <span id="delete-loader" class="loader"></span>
                     <div id="btn-container" class="flex gap-4">
                         <button id="confirm-modules-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
                         <button id="delete-modules-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
@@ -186,4 +191,50 @@ const moduleContainer = document.querySelector('#modules-scroll');
         textLoader.outerHTML = `<h2 id="text-loader" class="font-extrabold text-2xl text-red-500">${error.response.data.error}</h2>`;
     }
 })();
+
+moduleContainer.addEventListener('click', async e => {
+    if (e.target.closest('#delete-modules-btn') || e.target.querySelector('#delete-modules-btn')) {
+        const block = e.target.closest('.modules-info-container');
+        const dataPayment = block.children[1];
+        const deleteBtn = block.children[2].children[1];
+        try {
+            // eslint-disable-next-line no-undef
+            const { data } = await axios.delete(`/api/dashboard/${block.id}`);
+            block.remove();
+            createNotification(false, data);
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000);
+        } catch (error) {
+            console.log(error);
+            createNotification(true, error.response.data.error);
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000);
+        }
+    }
+});
+
+registrationContainer.addEventListener('click', async e => {
+    if (e.target.closest('#delete-registration-btn') || e.target.querySelector('#delete-registration-btn')) {
+        const block = e.target.closest('.registrations-info-container');
+        const dataPayment = block.children[1];
+        const deleteBtn = block.children[2].children[1];
+        try {
+            // eslint-disable-next-line no-undef
+            const { data } = await axios.delete(`/api/dashboard/${block.id}`);
+            block.remove();
+            createNotification(false, data);
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000);
+        } catch (error) {
+            console.log(error);
+            createNotification(true, error.response.data.error);
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000);
+        }
+    }
+})
 
