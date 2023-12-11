@@ -30,4 +30,20 @@ dashboardRouter.delete('/:id', async (req, res) => {
     }
 });
 
+dashboardRouter.patch('/:id', async (req, res) => {
+    try {
+        const { email } = await PagoMovil.findByIdAndUpdate(req.params.id, { verified: true });
+
+        const user = await User.findOne({ email: email });
+        console.log(user);
+        const upgrated = user.module + 1;
+        console.log(upgrated);
+        const savedUser = await User.findOneAndUpdate({ email: email }, { module: upgrated });
+        console.log(savedUser);
+        return res.status(200).json('Pago de módulo actualizado!');
+    } catch (error) {
+        console.log(error);
+    }
+});
+
 module.exports = dashboardRouter;

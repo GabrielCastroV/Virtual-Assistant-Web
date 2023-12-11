@@ -209,6 +209,7 @@ moduleContainer.addEventListener('click', async e => {
             }, 5000);
             dataPayment.classList.remove('hide');
             deleteLoader.classList.add('hide');
+            monthlyPayment.innerHTML -= 1;
         } catch (error) {
             console.log(error);
             createNotification(true, error.response.data.error);
@@ -218,6 +219,32 @@ moduleContainer.addEventListener('click', async e => {
             dataPayment.classList.remove('hide');
             deleteLoader.classList.add('hide');
         }
+    }
+
+    if (e.target.closest('#confirm-modules-btn') || e.target.closest('#confirm-modules-btn')) {
+        const block = e.target.closest('.modules-info-container');
+        const dataPayment = block.children[1];
+        // const loader = block.children[2];
+
+        try {
+            const { data } = await axios.patch(`/api/dashboard/${block.id}`)
+            block.remove();
+            createNotification(false, data);
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000);
+            dataPayment.classList.remove('hide');
+            deleteLoader.classList.add('hide');
+        } catch (error) {
+            console.log(error);
+            createNotification(true, error.response.data.error);
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000);
+            dataPayment.classList.remove('hide');
+            deleteLoader.classList.add('hide');
+        }
+        
     }
 });
 
@@ -238,6 +265,7 @@ registrationContainer.addEventListener('click', async e => {
             }, 5000);
             dataPayment.classList.remove('hide');
             deleteLoader.classList.add('hide');
+            pendingRegistration.innerHTML -= 1;
         } catch (error) {
             console.log(error);
             createNotification(true, error.response.data.error);
