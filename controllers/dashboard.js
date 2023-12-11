@@ -24,24 +24,24 @@ dashboardRouter.get('/', async (req, res) => {
 dashboardRouter.delete('/:id', async (req, res) => {
     const asd = req.body;
     console.log(asd);
+    return res.status(200).json('Eliminao pa 🗑️');
+    // if (!asd) {
+    //     try {
+    //         await PagoMovil.findByIdAndDelete(req.params.id);
+    //         return res.status(200).json('Eliminado 🗑️');
+    //     } catch (error) {
+    //         return res.status(400).json({ error: 'Error al eliminar el pago ✖️' });
+    //     }
+    // }
 
-    if (!asd) {
-        try {
-            await PagoMovil.findByIdAndDelete(req.params.id);
-            return res.status(200).json('Eliminado 🗑️');
-        } catch (error) {
-            return res.status(400).json({ error: 'Error al eliminar el pago ✖️' });
-        }
-    }
-
-    if (!asd) {
-        try {
-            await Registration.findByIdAndDelete(req.params.id);
-            return res.status(200).json('Eliminado 🗑️');
-        } catch (error) {
-            return res.status(400).json({ error: 'Error al eliminar el pago ✖️' });
-        }
-    }
+    // if (!asd) {
+    //     try {
+    //         await Registration.findByIdAndDelete(req.params.id);
+    //         return res.status(200).json('Eliminado 🗑️');
+    //     } catch (error) {
+    //         return res.status(400).json({ error: 'Error al eliminar el pago ✖️' });
+    //     }
+    // }
 });
 
 module.exports = dashboardRouter;

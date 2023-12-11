@@ -9,6 +9,7 @@ const morgan = require('morgan');
 const loginRouter = require('./controllers/login');
 const createRouter = require('./controllers/create');
 const dashboardRouter = require('./controllers/dashboard');
+const registrationsRouter = require('./controllers/registrations');
 
 (async () => {
     try {
@@ -46,5 +47,6 @@ app.use('/components', express.static(path.resolve(__dirname, 'views', 'componen
 app.use('/api/login', loginRouter);
 app.use('/api/create', createRouter);
 app.use('/api/dashboard', dashboardRouter);
+app.use('/api/registrations', registrationsRouter);
 
 module.exports = app;

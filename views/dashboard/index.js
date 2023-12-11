@@ -51,7 +51,7 @@ const notification = document.querySelector('#notification');
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
                         </svg>
                     </div>
-                    <p class="hide break-all text-sm text-allports-900 lg:text-base"> 
+                    <p class="break-all text-sm text-allports-900 lg:text-base"> 
                         <span class="font-semibold text-allports-950">Nombre:</span> ${unverifiedRegistration[i].name} <br>
                         <span class="font-semibold text-allports-950">Email:</span>  ${unverifiedRegistration[i].email} <br>
                         <span class="font-semibold text-allports-950">Teléfono:</span>  ${unverifiedRegistration[i].phone} <br>
@@ -59,7 +59,7 @@ const notification = document.querySelector('#notification');
                         <span class="font-semibold text-allports-950">Monto:</span>   ${unverifiedRegistration[i].total} ${unverifiedRegistration[i].currency}<br>
                         <span class="font-semibold text-allports-950">Orden:</span> #${unverifiedRegistration[i].order_id}
                     </p>
-                    <span id="delete-loader" class="loader "></span>
+                    <span id="delete-loader" class="loader hide"></span>
                     <div id="btn-container" class="flex gap-4">
                         <button id="confirm-registration-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
                         <button id="delete-registration-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
@@ -101,7 +101,7 @@ const notification = document.querySelector('#notification');
                         <span class="font-semibold text-allports-950">Monto:</span>   ${unverifiedRegistration[i].total} ${unverifiedRegistration[i].currency}<br>
                         <span class="font-semibold text-allports-950">Referencia:</span> #${unverifiedRegistration[i].order_id}
                     </p>
-                    <span id="delete-loader" class="loader"></span>
+                    <span id="delete-loader" class="loader hide"></span>
                     <div id="btn-container" class="flex gap-4">
                         <button id="confirm-registration-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
                         <button id="delete-registration-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
@@ -160,7 +160,7 @@ const notification = document.querySelector('#notification');
                     <span class="font-semibold text-allports-950">Monto:</span>   ${unverifiedPagoMovil[i].amount} bs<br>
                     <span class="font-semibold text-allports-950">Referencia:</span> #${unverifiedPagoMovil[i].ref_number}
                     </p>
-                    <span id="delete-loader" class="loader"></span>
+                    <span id="delete-loader" class="loader hide"></span>
                     <div id="btn-container" class="flex gap-4">
                         <button id="confirm-modules-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
                         <button id="delete-modules-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
@@ -219,21 +219,28 @@ registrationContainer.addEventListener('click', async e => {
     if (e.target.closest('#delete-registration-btn') || e.target.querySelector('#delete-registration-btn')) {
         const block = e.target.closest('.registrations-info-container');
         const dataPayment = block.children[1];
-        const deleteBtn = block.children[2].children[1];
+        const deleteBtn = block.children[3].children[1];
+        const deleteLoader = block.children[2]
+        dataPayment.classList.add('hide');
+        deleteLoader.classList.remove('hide');
         try {
             // eslint-disable-next-line no-undef
-            const { data } = await axios.delete(`/api/dashboard/${block.id}`);
+            const { data } = await axios.delete(`/api/registrations/${block.id}`);
             block.remove();
             createNotification(false, data);
             setTimeout(() => {
                 notification.classList.add('hidden');
             }, 5000);
+            dataPayment.classList.remove('hide');
+            deleteLoader.classList.add('hide');
         } catch (error) {
             console.log(error);
             createNotification(true, error.response.data.error);
             setTimeout(() => {
                 notification.classList.add('hidden');
             }, 5000);
+            dataPayment.classList.remove('hide');
+            deleteLoader.classList.add('hide');
         }
     }
 })
