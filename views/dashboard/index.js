@@ -196,7 +196,9 @@ moduleContainer.addEventListener('click', async e => {
     if (e.target.closest('#delete-modules-btn') || e.target.querySelector('#delete-modules-btn')) {
         const block = e.target.closest('.modules-info-container');
         const dataPayment = block.children[1];
-        const deleteBtn = block.children[2].children[1];
+        const deleteLoader = block.children[2];
+        dataPayment.classList.add('hide');
+        deleteLoader.classList.remove('hide');
         try {
             // eslint-disable-next-line no-undef
             const { data } = await axios.delete(`/api/dashboard/${block.id}`);
@@ -205,12 +207,16 @@ moduleContainer.addEventListener('click', async e => {
             setTimeout(() => {
                 notification.classList.add('hidden');
             }, 5000);
+            dataPayment.classList.remove('hide');
+            deleteLoader.classList.add('hide');
         } catch (error) {
             console.log(error);
             createNotification(true, error.response.data.error);
             setTimeout(() => {
                 notification.classList.add('hidden');
             }, 5000);
+            dataPayment.classList.remove('hide');
+            deleteLoader.classList.add('hide');
         }
     }
 });
@@ -219,7 +225,6 @@ registrationContainer.addEventListener('click', async e => {
     if (e.target.closest('#delete-registration-btn') || e.target.querySelector('#delete-registration-btn')) {
         const block = e.target.closest('.registrations-info-container');
         const dataPayment = block.children[1];
-        const deleteBtn = block.children[3].children[1];
         const deleteLoader = block.children[2]
         dataPayment.classList.add('hide');
         deleteLoader.classList.remove('hide');
