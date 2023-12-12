@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const Admin = require('../models/user');
 
 const userExtractor = async (request, response, next) => {
     try {
@@ -7,16 +8,10 @@ const userExtractor = async (request, response, next) => {
             return response.sendStatus(401);
         }
         const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-
-        if (!decoded.email == !process.env.USER_ADMIN) {
-            return response.sendStatus(401).json({ error: 'Error al ingresar' });
-        }
-        request.user = {
-            email: process.env.USER_ADMIN,
-            password: process.env.PASSWORD_ADMIN,
-        };
+        const user = await Admin.findById(decoded.id);
+        request.user = user;
     } catch (error) {
-        return response.sendStatus(403).json({ error: 'Error de usuario' });
+        return response.sendStatus(403);
     }
     next();
 };
