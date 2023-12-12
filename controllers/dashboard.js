@@ -33,16 +33,17 @@ dashboardRouter.delete('/:id', async (req, res) => {
 dashboardRouter.patch('/:id', async (req, res) => {
     try {
         const { email } = await PagoMovil.findByIdAndUpdate(req.params.id, { verified: true });
+        const { module, payday } = await User.findOne({ email: email });
+        const upgrated = module + 1;
 
-        const user = await User.findOne({ email: email });
-        console.log(user);
-        const upgrated = user.module + 1;
-        console.log(upgrated);
-        const savedUser = await User.findOneAndUpdate({ email: email }, { module: upgrated });
+        payday.setMonth(payday.getMonth() + 1);
+
+        const savedUser = await User.findOneAndUpdate({ email: email }, { module: upgrated }, { payday: payday });
         console.log(savedUser);
         return res.status(200).json('Pago de módulo actualizado!');
     } catch (error) {
         console.log(error);
+        return res.status(400).json({ error: 'No se ha podido confirmar el pago' });
     }
 });
 

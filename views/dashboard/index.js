@@ -60,6 +60,7 @@ const notification = document.querySelector('#notification');
                         <span class="font-semibold text-allports-950">Orden:</span> #${unverifiedRegistration[i].order_id}
                     </p>
                     <span id="delete-loader" class="loader hide"></span>
+                    <div class="hide"><span id="confirm-loader" class=""></span></div>
                     <div id="btn-container" class="flex gap-4">
                         <button id="confirm-registration-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
                         <button id="delete-registration-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
@@ -102,6 +103,7 @@ const notification = document.querySelector('#notification');
                         <span class="font-semibold text-allports-950">Referencia:</span> #${unverifiedRegistration[i].order_id}
                     </p>
                     <span id="delete-loader" class="loader hide"></span>
+                    <div class="hide"><span id="confirm-loader" class=""></span></div>
                     <div id="btn-container" class="flex gap-4">
                         <button id="confirm-registration-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
                         <button id="delete-registration-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
@@ -161,6 +163,7 @@ const notification = document.querySelector('#notification');
                     <span class="font-semibold text-allports-950">Referencia:</span> #${unverifiedPagoMovil[i].ref_number}
                     </p>
                     <span id="delete-loader" class="loader hide"></span>
+                    <div class="hide"><span id="confirm-loader" class=""></span></div>
                     <div id="btn-container" class="flex gap-4">
                         <button id="confirm-modules-btn" class="bg-allports-700 hover:bg-allports-800 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Confirmar</button>
                         <button id="delete-modules-btn" class="bg-red-400 hover:bg-red-500 text-sm p-4 text-allports-50 rounded-lg mt-4 font-semibold">Rechazar</button>
@@ -210,6 +213,19 @@ moduleContainer.addEventListener('click', async e => {
             dataPayment.classList.remove('hide');
             deleteLoader.classList.add('hide');
             monthlyPayment.innerHTML -= 1;
+            // ajusto los contenedores al centro
+            moduleContainer.classList.remove('justify-center');
+            if (monthlyPayment.innerHTML == 0) {
+                moduleContainer.innerHTML = `
+                <div id="no-registrations" class="flex justify-center items-center gap-4 bg-allports-50 p-6 rounded-3xl font-semibold text-allports-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
+                    </svg>
+                    <p class="text-center">No hay registros pendientes</p>
+                </div>
+                `;
+                moduleContainer.classList.add('justify-center');
+            } 
         } catch (error) {
             console.log(error);
             createNotification(true, error.response.data.error);
@@ -224,7 +240,10 @@ moduleContainer.addEventListener('click', async e => {
     if (e.target.closest('#confirm-modules-btn') || e.target.closest('#confirm-modules-btn')) {
         const block = e.target.closest('.modules-info-container');
         const dataPayment = block.children[1];
-        // const loader = block.children[2];
+        const loader = block.children[3];
+
+        dataPayment.classList.add('hide');
+        loader.classList.remove('hide');
 
         try {
             const { data } = await axios.patch(`/api/dashboard/${block.id}`)
@@ -234,7 +253,21 @@ moduleContainer.addEventListener('click', async e => {
                 notification.classList.add('hidden');
             }, 5000);
             dataPayment.classList.remove('hide');
-            deleteLoader.classList.add('hide');
+            loader.classList.add('hide');
+            monthlyPayment.innerHTML -= 1;
+            // ajusto los contenedores al centro
+            moduleContainer.classList.remove('justify-center');
+            if (monthlyPayment.innerHTML == 0) {
+                moduleContainer.innerHTML = `
+                <div id="no-registrations" class="flex justify-center items-center gap-4 bg-allports-50 p-6 rounded-3xl font-semibold text-allports-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
+                    </svg>
+                    <p class="text-center">No hay registros pendientes</p>
+                </div>
+                `;
+                moduleContainer.classList.add('justify-center');
+            } 
         } catch (error) {
             console.log(error);
             createNotification(true, error.response.data.error);
@@ -242,7 +275,7 @@ moduleContainer.addEventListener('click', async e => {
                 notification.classList.add('hidden');
             }, 5000);
             dataPayment.classList.remove('hide');
-            deleteLoader.classList.add('hide');
+            loader.classList.add('hide');
         }
         
     }

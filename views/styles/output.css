@@ -1049,12 +1049,16 @@ video {
   transition-duration: 75ms;
 }
 
+/* margin removal and stuff of browser fixed with this */
+
 * {
   margin: 0;
   box-sizing: border-box;
   border-width: 0;
   border-style: solid;
 }
+
+/* hamburger for navbar (mobile version only) */
 
 .hamburger {
   cursor: pointer;
@@ -1106,7 +1110,7 @@ video {
   box-shadow: -2px 5px 15px -7px rgba(8,53,73,0.65);
 }
 
-/* underline animation */
+/* underline animation for navbar (tablet and pc version only) */
 
 .under {
   text-decoration: none;
@@ -1121,11 +1125,15 @@ video {
   background-size: 100% 2px;
 }
 
+/* google font for the entire web  */
+
 .font {
   font-family: 'Lobster', sans-serif;
   font-family: 'Merriweather', serif;
   font-family: 'Montserrat', sans-serif;
 }
+
+/* loader for /create form button */
 
 .loading-wave {
   width: 150px;
@@ -1169,6 +1177,8 @@ video {
   }
 }
 
+/* information in date input at /create form */
+
 .info-icon {
   position: relative;
   display: inline-block;
@@ -1190,9 +1200,13 @@ video {
   display: block;
 }
 
+/* just hide div */
+
 .hide {
   display: none;
 }
+
+/* a hamster loader screen for /dashboard  */
 
 .wheel-and-hamster {
   --dur: 1s;
@@ -1358,7 +1372,7 @@ video {
 		linear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;
 }
 
-/* Animations */
+/* Animations for loader screen in /dashboard */
 
 @keyframes hamster {
   from, to {
@@ -1488,9 +1502,13 @@ video {
   }
 }
 
+/* shake animation for false regex expresion in /create form */
+
 .shake {
   animation: justshake 0.3s forwards;
 }
+
+/* height for registration and module container in /dashboard */
 
 #registrations, #modules{
   height: 560px;
@@ -1501,6 +1519,8 @@ video {
     height: 480px;
   }
 }
+
+/* delete loader */
 
 .loader {
   position: relative;
@@ -1608,6 +1628,50 @@ video {
     background-position: 0 0px , 9px 5px, 18px 0px, 27px 7px,
                       36px 10px, 45px 5px, 55px 0px, 64px 8px;
     opacity: 0;
+  }
+}
+
+/* confirm loader  */
+
+#confirm-loader {
+  width: 8px;
+  height: 40px;
+  border-radius: 4px;
+  display: block;
+  margin: 20px auto;
+  position: relative;
+  background: currentColor;
+  color: black;
+  box-sizing: border-box;
+  /* animation: animloader 0.3s 0.3s linear infinite alternate; */
+}
+
+#confirm-loader::after, #confirm-loader::before {
+  content: '';
+  width: 8px;
+  height: 40px;
+  border-radius: 4px;
+  background: currentColor;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+  box-sizing: border-box;
+  animation: animloader 0.3s  0.45s  linear infinite alternate;
+}
+
+#confirm-loader::before {
+  left: -20px;
+  animation-delay: 0s;
+}
+
+@keyframes animloader {
+  0%   {
+    height: 48px
+  }
+
+  100% {
+    height: 4px
   }
 }
 
@@ -1794,4 +1858,3 @@ video {
     flex-direction: row;
   }
 }
-      
