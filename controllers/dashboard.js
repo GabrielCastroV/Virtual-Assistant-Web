@@ -7,6 +7,10 @@ const { getDollarPrices } = require('venecodollar');
 const dashboardRouter = require('express').Router();
 
 dashboardRouter.get('/', async (req, res) => {
+    const admin = req.user;
+    if (!admin) {
+        return res.status(400).json({ error: 'No se encontró usuario administrador' });
+    }
     try {
         // obtengo todos los estudiantes de mi base de datos
         const students = await User.find();
