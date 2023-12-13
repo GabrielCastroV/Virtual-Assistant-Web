@@ -172,7 +172,7 @@ const notification = document.querySelector('#notification');
                 `;
         }
         // de no haber pagos relleno el contenedor con un mensaje de ausencia de pagos
-        if (unverifiedPagoMovil.length === S0) {
+        if (unverifiedPagoMovil.length === 0) {
             moduleContainer.innerHTML = `
             <div id="no-registrations" class="flex justify-center items-center gap-4 bg-allports-50 p-6 rounded-3xl font-semibold text-allports-900">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
