@@ -114,7 +114,7 @@ const notification = document.querySelector('#notification');
         }
 
         // de no haber pagos relleno el contenedor con un mensaje de ausencia de pagos
-        if (unverifiedRegistration.length === 0) {
+        if (unverifiedRegistration.length === 10) {
             registrationContainer.innerHTML = `
             <div id="no-registrations" class="flex justify-center items-center gap-4 bg-allports-50 p-6 rounded-3xl font-semibold text-allports-900">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
@@ -172,7 +172,7 @@ const notification = document.querySelector('#notification');
                 `;
         }
         // de no haber pagos relleno el contenedor con un mensaje de ausencia de pagos
-        if (unverifiedPagoMovil.length === 0) {
+        if (unverifiedPagoMovil.length === 10) {
             moduleContainer.innerHTML = `
             <div id="no-registrations" class="flex justify-center items-center gap-4 bg-allports-50 p-6 rounded-3xl font-semibold text-allports-900">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
@@ -197,7 +197,7 @@ const notification = document.querySelector('#notification');
 })();
 
 moduleContainer.addEventListener('click', async e => {
-    if (e.target.closest('#delete-modules-btn') || e.target.querySelector('#delete-modules-btn')) {
+    if (e.target.closest('#delete-modules-btn')) {
         const block = e.target.closest('.modules-info-container');
         const dataPayment = block.children[1];
         const deleteLoader = block.children[2];
@@ -238,7 +238,7 @@ moduleContainer.addEventListener('click', async e => {
         }
     }
 
-    if (e.target.closest('#confirm-modules-btn') || e.target.closest('#confirm-modules-btn')) {
+    if (e.target.closest('#confirm-modules-btn')) {
         const block = e.target.closest('.modules-info-container');
         const dataPayment = block.children[1];
         const loader = block.children[3];
@@ -284,6 +284,7 @@ moduleContainer.addEventListener('click', async e => {
 
 registrationContainer.addEventListener('click', async e => {
     if (e.target.closest('#delete-registration-btn') || e.target.querySelector('#delete-registration-btn')) {
+        console.log('delete-btn registration');
         const block = e.target.closest('.registrations-info-container');
         const dataPayment = block.children[1];
         const deleteLoader = block.children[2]
@@ -312,6 +313,8 @@ registrationContainer.addEventListener('click', async e => {
     }
 
     if (e.target.closest('#confirm-registrations-btn') || e.target.closest('#confirm-registrations-btn')) {
+        console.log('confirm-btn registration');
+
         const block = e.target.closest('.registrations-info-container');
         const dataPayment = block.children[1];
         const loader = block.children[3];
