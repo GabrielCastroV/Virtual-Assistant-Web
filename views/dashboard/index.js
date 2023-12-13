@@ -191,7 +191,7 @@ const notification = document.querySelector('#notification');
         console.log(error);
 
         // mensaje de error para el usuario en caso de que algo falle
-        textLoader.outerHTML = `<h2 id="text-loader" class="font-extrabold text-2xl text-red-500">${error.response.data.error ?? 'Error de server'}</h2>`;
+        textLoader.outerHTML = `<h2 id="text-loader" class="font-extrabold text-2xl text-red-500">${error.response.data.error ?? 'Error de acceso, vuelva a intentarlo'}</h2>`;
         window.location.pathname = '/login'
     }
 })();
