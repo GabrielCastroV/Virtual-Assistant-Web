@@ -1,5 +1,7 @@
 const navbar = document.querySelector('#nav');
-
+const mainContainer = document.querySelector('#main-container');
+const loaderScreen = document.querySelector('#loader-screen');
+const textLoader = document.querySelector('#text-loader');
 
 const createNavHome = () => {
     navbar.innerHTML = `
@@ -116,7 +118,7 @@ const createNavLogin = () => {
 };
 const createNavDashboard = () => {
     navbar.innerHTML = `
-    <div class="max-w-7xl h-16 mx-auto flex items-center px-4 text-allports-50 justify-between ">
+    <div class="max-w-7xl h-16 mx-auto flex items-center px-4 text-allports-50 justify-between">
 
         <a class="font-bold text-xl flex items-center gap-2" href="/" >
             <img src="/images/Telegram-Logo.webp" class="h-8"><div class="hidden md:block">Asistente Virtual</div></img>
@@ -140,13 +142,13 @@ const createNavDashboard = () => {
         <!-- tablet/pc version -->
 
           <div class="hidden md:flex flex-row gap-4">
-            <a href="/" class="under">Cerrar Sesión</a>
+            <a class="under cursor-pointer">Cerrar Sesión</a>
           </div>
 
           <!-- menu mobile -->
 
             <div class="fixed top-16 right-0 hidden left-0 bottom-0 justify-center items-center flex-col gap-4 text-transparent bg-allports-900 bg-opacity-60 backdrop-blur-md">
-                <a href="/" class="btn select-none bg-allports-50 hover:bg-allports-100 text-allports-950 border-l-allports-950 border rounded-lg p-4 w-2/4 text-center">Cerrar Sesión</a>
+                <a class="btn cursor-pointer select-none bg-allports-50 hover:bg-allports-100 text-allports-950 border-l-allports-950 border rounded-lg p-4 w-2/4 text-center">Cerrar Sesión</a>
             </div>          
     </div>
     `;
@@ -177,5 +179,37 @@ navBtn.addEventListener('change', () => {
         navBtn.classList.remove('active');
         menuMobile.classList.add('hidden');
         menuMobile.classList.remove('flex');
+    }
+});
+
+const desktopLogoutBtn = navbar.children[0].children[2];
+const mobileLogoutBtn = navbar.children[0].children[3].children[0];
+
+desktopLogoutBtn.addEventListener('click', async () => {
+    mainContainer.classList.add('hide');
+    loaderScreen.classList.remove('hide');
+    textLoader.outerHTML = '<h2 id="text-loader" class="font-extrabold text-2xl text-allports-950">Cerrando sesión...</h2>';
+    try {
+        // eslint-disable-next-line no-undef
+        await axios.get('/api/logout');
+        window.location.pathname = '/login';
+    } catch (error) {
+        console.log(error);
+        mainContainer.classList.remove('hide');
+        loaderScreen.classList.add('hide');
+    }
+});
+mobileLogoutBtn.addEventListener('click', async () => {
+    mainContainer.classList.add('hide');
+    loaderScreen.classList.remove('hide');
+    textLoader.outerHTML = '<h2 id="text-loader" class="font-extrabold text-2xl text-allports-950">Cerrando sesión...</h2>';
+    try {
+        // eslint-disable-next-line no-undef
+        await axios.get('/api/logout');
+        window.location.pathname = '/login';
+    } catch (error) {
+        console.log(error);
+        mainContainer.classList.remove('hide');
+        loaderScreen.classList.add('hide');
     }
 });
