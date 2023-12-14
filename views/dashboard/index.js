@@ -51,7 +51,7 @@ const notification = document.querySelector('#notification');
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
                         </svg>
                     </div>
-                    <p class="break-all text-sm text-allports-900 lg:text-base"> 
+                    <p class="break-words text-sm text-allports-900 lg:text-base"> 
                         <span class="font-semibold text-allports-950">Nombre:</span> ${unverifiedRegistration[i].name} <br>
                         <span class="font-semibold text-allports-950">Email:</span>  ${unverifiedRegistration[i].email} <br>
                         <span class="font-semibold text-allports-950">Teléfono:</span>  ${unverifiedRegistration[i].phone} <br>
@@ -96,7 +96,7 @@ const notification = document.querySelector('#notification');
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
                         </svg>
                     </div>
-                    <p class="break-all text-sm text-allports-900 lg:text-base"> 
+                    <p class="break-words text-sm text-allports-900 lg:text-base"> 
                         <span class="font-semibold text-allports-950">Email:</span>  ${unverifiedRegistration[i].email} <br>
                         <span class="font-semibold text-allports-950">Curso:</span>  ${unverifiedRegistration[i].course} (${dataCourse * data.dollarPrice} bs)<br>
                         <span class="font-semibold text-allports-950">Monto:</span>   ${unverifiedRegistration[i].total} ${unverifiedRegistration[i].currency}<br>
@@ -156,7 +156,7 @@ const notification = document.querySelector('#notification');
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
                         </svg>
                     </div>
-                    <p class="break-all text-sm text-allports-900 lg:text-base"> 
+                    <p class="break-words text-sm text-allports-900 lg:text-base"> 
                     <span class="font-semibold text-allports-950">Email:</span>  ${unverifiedPagoMovil[i].email} <br>
                     <span class="font-semibold text-allports-950">Curso:</span>  ${unverifiedPagoMovil[i].course} ${unverifiedPagoMovil[i].modality} (${dataCourse * data.dollarPrice} bs)<br>
                     <span class="font-semibold text-allports-950">Monto:</span>   ${unverifiedPagoMovil[i].amount} bs<br>
@@ -284,7 +284,6 @@ moduleContainer.addEventListener('click', async e => {
 
 registrationContainer.addEventListener('click', async e => {
     if (e.target.closest('#delete-registration-btn')) {
-        console.log('delete-btn registration');
         const block = e.target.closest('.registrations-info-container');
         const dataPayment = block.children[1];
         const deleteLoader = block.children[2]
@@ -301,6 +300,19 @@ registrationContainer.addEventListener('click', async e => {
             dataPayment.classList.remove('hide');
             deleteLoader.classList.add('hide');
             pendingRegistration.innerHTML -= 1;
+            // ajusto los contenedores al centro
+            registrationContainer.classList.remove('justify-center');
+            if (pendingRegistration.innerHTML == 0) {
+                registrationContainer.innerHTML = `
+                <div id="no-registrations" class="flex justify-center items-center gap-4 bg-allports-50 p-6 rounded-3xl font-semibold text-allports-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
+                    </svg>
+                    <p class="text-center">No hay registros pendientes</p>
+                </div>
+                `;
+                registrationContainer.classList.add('justify-center');
+            } 
         } catch (error) {
             console.log(error);
             createNotification(true, error.response.data.error);

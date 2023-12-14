@@ -63,10 +63,10 @@ dashboardRouter.patch('/:id', async (req, res) => {
 
         // sumo un modulo al estudiante y agrego un mes más de día de pago.
         const upgrated = module + 1;
-        payday.setMonth(payday.getMonth() + 1);
+        const newPayDay = new Date(payday.setMonth(payday.getMonth() + 1));
 
         // finalmente actualizo los datos del estudiante (modulo y dia de pago)
-        await User.findOneAndUpdate({ email: email }, { module: upgrated }, { payday: payday });
+        await User.findOneAndUpdate({ email: email }, { module: upgrated, payday: newPayDay });
 
         // devuelvo una respuesta positiva (OK) al front-end.
         return res.status(200).json('Pago de módulo actualizado correctamente :)');
