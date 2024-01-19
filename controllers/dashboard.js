@@ -19,7 +19,7 @@ dashboardRouter.get('/', async (req, res) => {
         const info = await getDollarPrices();
 
         // selecciono el dolar BCV
-        const dollarPrice = info[5].dollar;
+        const dollarPrice = info[5].dollar.toFixed(2);
 
         // obtengo todos mis recibos de pagos de inscripciones
         const registrations = await Registration.find();
